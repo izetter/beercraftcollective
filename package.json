@@ -1,0 +1,19 @@
+{
+	"name": "beercraftcollective",
+	"version": "1.0.0",
+	"description": "Online beer store",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/izetter/beercraftcollective.git"
+	},
+	"author": "Code Craft Collective",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/izetter/beercraftcollective/issues"
+	},
+	"homepage": "https://github.com/izetter/beercraftcollective#readme"
+}
