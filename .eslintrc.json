@@ -1,0 +1,19 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["eslint:recommended", "prettier"],
+	"overrides": [],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": {
+		"comma-dangle": "warn",
+		"no-empty-function": "warn",
+		"no-unused-vars": "warn",
+		"no-useless-constructor": "warn",
+		"prefer-const": "warn"
+	}
+}
