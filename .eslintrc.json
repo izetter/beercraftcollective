@@ -10,9 +10,10 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"comma-dangle": "warn",
-		"no-empty-function": "warn",
-		"no-unused-vars": "warn",
+		"no-console": 1,
+		"no-empty": 1,
+		"no-unused-vars": 1,
+		"no-use-before-define": 2,
 		"no-useless-constructor": "warn",
 		"prefer-const": "warn"
 	}
