@@ -1,0 +1,44 @@
+{
+	"editor.insertSpaces": false,
+	"prettier.singleQuote": true,
+	"editor.detectIndentation": false,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.autoClosingBrackets": "always"
+	},
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact",
+		"typescript": "typescriptreact"
+	},
+	"postcssSorting.config": {
+		"properties-order": "alphabetical"
+	},
+	"[javascriptreact]": {
+		"editor.autoClosingBrackets": "always"
+	},
+	"emmet.syntaxProfiles": {
+		"html": {
+			"self_closing_tag": "xhtml",
+			"inline_break": 2
+		},
+		"js": {
+			"attr_quotes": "single",
+			"inline_break": 2
+		},
+		"jsx": {
+			"attr_quotes": "double",
+			"self_closing_tag": "xhtml",
+			"inline_break": 2
+		},
+		"tsx": {
+			"attr_quotes": "double",
+			"self_closing_tag": "xhtml",
+			"inline_break": 2
+		}
+	},
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"files.eol": "\n",
+	"prettier.useTabs": true,
+	"prettier.printWidth": 120,
+	"editor.formatOnSave": true
+}
