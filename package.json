@@ -1,5 +1,6 @@
 {
 	"name": "beercraftcollective",
+	"type": "module",
 	"version": "1.0.0",
 	"description": "Online beer store",
 	"main": "index.js",
