@@ -1,0 +1,17 @@
+# Auto-detect text files
+* text=auto
+
+# Treat these as text files with linefeed endings
+*.txt text eol=lf
+*.md text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# Binary files
+*.gif binary
+*.jpg binary
+*.png binary
