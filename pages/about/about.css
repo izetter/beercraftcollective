@@ -1,0 +1,12 @@
+#squareLeft {
+	background-color: #d59601f2;
+	border: 20px;
+}
+
+#squareLeft2 {
+	background-color: #37220ff2;
+	color: #d69601;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+}
