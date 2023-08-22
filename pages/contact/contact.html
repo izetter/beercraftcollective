@@ -10,6 +10,12 @@
 			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 			crossorigin="anonymous"
 		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+			defer
+		></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -48,34 +54,35 @@
 				</div>
 			</div>
 		</nav>
-		<div class="container text-center my-5">
+
+		<main class="container text-center my-5">
 			<form class="row col-12">
 				<div class="row justify-content-center">
 					<h1>Contáctanos</h1>
 					<div class="col-6">
-						<label for="inputNombre" class="form-label">Nombre</label>
-						<input type="text" class="form-control border border-black" id="inputNombre" />
+						<label for="name" class="form-label">Nombre</label>
+						<input type="text" class="form-control border border-black" id="name" />
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="col-6">
-						<label for="inputCorreo" class="form-label">Correo electronico</label>
-						<input type="email" class="form-control border border-black" id="inputCorreo" />
+						<label for="email" class="form-label">Correo electronico</label>
+						<input type="email" class="form-control border border-black" id="email" />
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="col-6">
-						<label for="inputTelefono" class="form-label">Telefono de contacto</label>
-						<input type="tel" class="form-control border border-black" id="inputTelefon" />
+						<label for="phone" class="form-label">Telefono de contacto</label>
+						<input type="tel" class="form-control border border-black" id="phone" />
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="mb-3 col-6">
-						<label for="mensaje" class="form-label">Mensaje</label>
-						<textarea class="form-control border border-black" id="mensaje" rows="3"></textarea>
+						<label for="message" class="form-label">Mensaje</label>
+						<textarea class="form-control border border-black" id="message" rows="3"></textarea>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -90,7 +97,7 @@
 					<button type="submit" class="my-2 btn btn-warning">Enviar</button>
 				</div>
 			</form>
-		</div>
+		</main>
 
 		<footer>
 			<div class="row text-center justify-content-center">
@@ -108,10 +115,5 @@
 				<div class="col-4"></div>
 			</div>
 		</footer>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-			crossorigin="anonymous"
-		></script>
 	</body>
 </html>
