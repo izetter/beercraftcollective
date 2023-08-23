@@ -10,8 +10,9 @@
 			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="../about/about.css" />
+
 		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="../about/about.css" />
 	</head>
 	<body>
 		<header>
@@ -52,27 +53,29 @@
 				</div>
 			</nav>
 		</header>
-		<main class="container text-center my-5">
-			<div class="row" style="height: 390px">
+		<main class="container text-center">
+			<div class="row row-cols-1" style="height: 450px">
 				<div
-					class="main-about-1 col-2 col-md-8 col-lg-8 h-100"
-					data-aos="zoom-out-up"
+					class="main-about-1 col-12 mt-2 col-md-4 col-lg-6 h-100"
+					data-aos="zoom-in-up"
 					data-aos-delay="300"
 					data-aos-duration="3000"
 				></div>
-				<div class="col-5 col-md-2 col-lg-2">
+				<div class="col-12 col-md-4 col-lg-3">
 					<img
+						class="d-none d-md-block"
 						src="/assets/img/cerveza2.jpg"
 						alt="cerveza de presentación"
-						style="height: 400px"
+						style="width: 200px; height: 400px"
 						data-aos="zoom-in-left"
 						data-aos-delay="300"
 						data-aos-duration="3000"
 					/>
 				</div>
-				<div class="col-5 col-md-2 col-lg-2">
+				<div class="col-12 col-md-4 col-lg-3">
 					<img
-						src="/assets/img/cerveza6.jpg"
+						class="d-none d-md-block"
+						src="/assets/img/cerveza2.jpg"
 						alt="cerveza de presentación"
 						style="height: 400px"
 						data-aos="zoom-in-right"
@@ -82,9 +85,9 @@
 				</div>
 			</div>
 
-			<div class="row align-items-start my-2" style="height: 400px">
+			<div class="row mt-2" style="height: 400px">
 				<div
-					class="main-about-2 col-1 col-md-3 col-lg-3 h-100 d-flex align-items-center fs-2 fw-semibold"
+					class="main-about-2 col-12 col-md-2 col-lg-3 h-100 d-flex align-items-center fs-2 fw-semibold"
 					data-aos="fade-down-right"
 					data-aos-delay="300"
 					data-aos-duration="3000"
@@ -92,42 +95,164 @@
 					¿Quienes somos?
 				</div>
 				<div
-					class="main-about-3 col-10 col-md-6 col-lg-6 h-100 d-flex"
+					class="main-about-3 col-12 col-md-8 col-lg-6 h-100 d-flex"
+					style="height: 400px"
 					data-aos="fade-down-left"
 					data-aos-delay="300"
 					data-aos-duration="3000"
 				>
-					<p class="d-flex align-items-center">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt repellendus, excepturi exercitationem
-						corrupti cumque, ducimus fugiat magni cum rem molestiae suscipit odio maiores itaque facere inventore,
-						reiciendis voluptatem veritatis temporibus. Consequuntur ea porro, nisi assumenda doloremque esse
-						dignissimos, optio harum pariatur perspiciatis unde perferendis veniam tempora excepturi sint quam, tenetur
-						placeat cumque aperiam dolores quos voluptate.
+					<p class="about-us-text d-flex align-items-center pt-4">
+						Somos Beer Craft Collective, donde tanto los entusiastas como los conocedores de la cerveza pueden explorar
+						una amplia selección de cervezas artesanales de todo el mundo. Descubre la fusión de creatividad y calidad
+						mientras navegas por una colección curada de cervezas de pequeños lotes elaboradas por cervecerías
+						independientes. Indulge tu curiosidad y paladar mientras compras de manera segura y recibes tus cervezas
+						seleccionadas directamente en tu puerta. Únete a nosotros en un viaje de sabor y descubrimiento, celebrando
+						la artesanía y la innovación que convierten a la cerveza artesanal en una verdadera forma de arte. ¡Salud a
+						un mundo de cervezas excepcionales, traído a ti con comodidad y pasión a través de Beer Craft Collective
 					</p>
 				</div>
 				<div
-					class="main-about-4 col-1 col-md-3 col-lg-3 h-100"
+					class="main-about-4 d-none d-md-block col-12 col-md-2 col-lg-3 h-100"
 					data-aos="fade-up-left"
 					data-aos-delay="400"
 					data-aos-duration="3000"
 				></div>
 			</div>
-			<div class="row align-items-center my-2" style="height: 300px">
+			<div class="row align-items-center row-cols-1" style="height: 300px">
 				<div
-					class="col-8 col-md-5 col-lg-5 h-100"
-					data-aos="zoom-out-right"
+					class="d-none d-md-block col-md-5 col-lg-5 h-100"
+					data-aos="fade-up"
 					data-aos-delay="400"
 					data-aos-duration="3000"
 				>
 					<img class="h-100" src="/assets/img/cerveza1.jpg" alt="cerveza de presentación" />
 				</div>
 				<div
-					class="main-about-5 col-4 col-md-7 col-lg-7 h-100"
-					data-aos="zoom-out-left"
+					class="main-about-5 col-12 col-md-7 col-lg-7 h-100 d-none d-md-block"
+					data-aos="fade-down"
 					data-aos-delay="400"
 					data-aos-duration="3000"
 				></div>
 			</div>
+
+			<!-- Seccion para describir al development team   -->
+			<section class="development-team col-lg-12 mt-4 container">
+				<div
+					class="main-about-1 row row-cols-1 col-lg-12 d-flex align-items-center"
+					style="height: 100px"
+					data-aos="fade-up-right"
+					data-aos-delay="400"
+					data-aos-duration="3000"
+				>
+					<h2 class="d-flex justify-content-center">Development Team</h2>
+				</div>
+				<div class="row row-cols-1 row-cols-md-4 align-items-center mt-4">
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="fade-down"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img class="img-thumbnail rounded-circle" src="/assets/img/citDev.jpg" alt="Web Developer" width="100px" />
+					</div>
+					<div class="col-6 col-md-3 col-lg-2 h-100" data-aos="fade-up" data-aos-delay="400" data-aos-duration="3000">
+						<p>Cit Gonzalez. | Dev</p>
+						<p class="text-sm">
+							"El mundo de la tecnología cada día nos va sorprendiendo, es por ello que me interese al respecto".
+						</p>
+					</div>
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="fade-up-right"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img class="img-thumbnail rounded-circle" src="/assets/img/isayDev.jpg" alt="Web Developer" width="100px" />
+					</div>
+					<div class="col-6 col-md-3 col-lg-2 h-100" data-aos="flip-down" data-aos-delay="400" data-aos-duration="3000">
+						<p>Isay Zetter.| Scrum Master | Dev</p>
+						<p class="text-sm">
+							"Tapatío, curioso, me gusta saber el cómo y porqué de las cosas. Disfruto de probar platillos nuevos y
+							jugar ping pong. ".
+						</p>
+					</div>
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="flip-left"
+						data-aos-easing="ease-out-cubic"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img class="img-thumbnail rounded-circle" src="/assets/img/esmeDev.jpg" alt="Web Developer" width="100px" />
+					</div>
+					<div
+						class="col-6 col-md-9 col-lg-2 h-100"
+						data-aos="fade-left"
+						data-aos-anchor="#example-anchor"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<p>Esmeralda TG | Dev</p>
+						<p class="text-sm">
+							"Mi pasión por explorar el mundo a través de los viajes se combina perfectamente con mi amor por el
+							emocionante mundo de la Programacion".-
+						</p>
+					</div>
+				</div>
+
+				<div class="row row-cols-1 row-cols-md-4 align-items-center">
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="fade-up-right"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img
+							class="img-thumbnail rounded-circle"
+							src="/assets/img/diegoDev.jpg"
+							alt="Web Developer"
+							width="100px"
+						/>
+					</div>
+					<div class="col-6 col-md-3 col-lg-2 h-100" data-aos="fade-left" data-aos-delay="400" data-aos-duration="3000">
+						<p>Diego Herrera | Dev</p>
+						<p class="text-sm">"Creativo, en constante crecimiento y en busca de nuevos retos"</p>
+					</div>
+
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="fade-up-right"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img class="img-thumbnail rounded-circle" src="/assets/img/aledev.png" alt="Web Developer" width="100px" />
+					</div>
+					<div class="col-6 col-md-3 col-lg-2 h-100" data-aos="fade-left" data-aos-delay="400" data-aos-duration="3000">
+						<p>Alejandra Ortiz | Dev</p>
+						<p class="text-sm">"Creativo, en constante crecimiento y en busca de nuevos retos"</p>
+					</div>
+					<div
+						class="col-6 col-md-3 col-lg-2 h-100 d-flex justify-content-center"
+						data-aos="zoom-out-right"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<img class="img-thumbnail rounded-circle" src="/assets/img/LaloDev.jpg" alt="Web Developer" width="100px" />
+					</div>
+					<div
+						class="col-6 col-md-9 col-lg-2 h-100"
+						data-aos="fade-right"
+						data-aos-delay="400"
+						data-aos-duration="3000"
+					>
+						<p>Eduardo Gutierrez | Dev</p>
+						<p class="text-sm">
+							"Desarrollador en proceso, zurdo, coleccionista de sneakers, un enorme gusto por los videojuegos y
+							aprender cosas nuevas cada día.".
+						</p>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<script

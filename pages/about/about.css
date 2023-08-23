@@ -26,3 +26,11 @@
 .main-about-5 {
 	background-color: #657733;
 }
+
+.about-us-text {
+	text-align: justify;
+}
+.development-team {
+	font-size: small;
+	text-align: justify;
+}
