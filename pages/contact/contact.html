@@ -22,7 +22,7 @@
 			crossorigin="anonymous"
 			defer
 		></script>
-		<script type="module" src="./contact.js"></script>
+		<script src="./contact.js" defer></script>
 	</head>
 
 	<body>
@@ -69,28 +69,44 @@
 					<h1>Contáctanos</h1>
 					<div class="col-6">
 						<label for="name" class="form-label">Nombre</label>
-						<input type="text" class="form-control border border-black" id="name" name="name" />
+						<input type="text" class="form-control border border-black" id="name" name="name" value="isay" required />
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="col-6">
 						<label for="email" class="form-label">Correo electronico</label>
-						<input type="email" class="form-control border border-black" id="email" name="email" />
+						<input
+							type="email"
+							class="form-control border border-black"
+							id="email"
+							name="email"
+							value="yoouho@stuff.com"
+							required
+						/>
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="col-6">
 						<label for="phone" class="form-label">Telefono de contacto</label>
-						<input type="tel" class="form-control border border-black" id="phone" name="phone" />
+						<input type="tel" class="form-control border border-black" id="phone" name="phone" value="12" required />
 					</div>
 				</div>
 
 				<div class="row justify-content-center">
 					<div class="mb-3 col-6">
 						<label for="message" class="form-label">Mensaje</label>
-						<textarea class="form-control border border-black" id="message" rows="3" name="message"></textarea>
+						<textarea
+							class="form-control border border-black"
+							id="message"
+							rows="3"
+							name="message"
+							value="el mensaje"
+							required
+						>
+el mensaje</textarea
+						>
 					</div>
 				</div>
 

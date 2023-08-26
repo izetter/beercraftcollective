@@ -1,16 +1,16 @@
 const form = document.querySelector('main form');
 
-const endpoint = 'https://reqres.in/api/register';
+const endpoint = 'https://formsubmit.co/ajax/zetter.contact@gmail.com'; // https://formsubmit.co/tania.gayosso@idr.edu.mx  // https://formsubmit.co/ajax/your@email.com
 
 async function postMessage(body, url = endpoint) {
 	try {
 		const response = await fetch(url, {
 			method: 'POST',
-			body: body,
-			headers: { 'Content-Type': 'application/json' },
+			body: new FormData(body),
 		});
 		const parsedResponse = await response.json();
 		console.log(parsedResponse);
+		alert('Gracias, te responderemos en breve');
 	} catch (error) {
 		console.log(error);
 	}
@@ -18,14 +18,7 @@ async function postMessage(body, url = endpoint) {
 
 function handleSubmit(evt) {
 	evt.preventDefault();
-
-	const message = {
-		email: 'eve.holt@reqres.in',
-		password: form.elements.name,
-	};
-
-	console.dir(form.elements.name);
-	postMessage(JSON.stringify(message));
+	postMessage(form);
 }
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
