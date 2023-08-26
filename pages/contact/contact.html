@@ -22,11 +22,12 @@
 			crossorigin="anonymous"
 			defer
 		></script>
+		<link rel="stylesheet" href="contact.css" />
 		<script src="./contact.js" defer></script>
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
 				<img src="/assets/img/logo.png" style="height: 50px" alt="" />
 				<button
@@ -61,62 +62,31 @@
 					</form>
 				</div>
 			</div>
-		</nav>
+		</nav> -->
 
 		<main class="container text-center my-5">
-			<form class="row col-12">
-				<div class="row justify-content-center">
-					<h1>Contáctanos</h1>
-					<div class="col-6">
-						<label for="name" class="form-label">Nombre</label>
-						<input type="text" class="form-control border border-black" id="name" name="name" value="isay" required />
-					</div>
+			<div class="container d-flex justify-content-center">
+				<div class="row col-7 col-lg-4">
+					<form id="contact-form" class="text-center">
+						<div class="mb-4">
+						  <label for="name" class="form-label">Nombre</label>
+						  <input type="text" class="form-control border-dark-subtle" id="name" required>
+						</div>
+						<div class="mb-4">
+						  <label for="email" class="form-label">Email</label>
+						  <input type="email" class="form-control border-dark-subtle" id="email" required>
+						</div>
+						<div class="mb-4">
+							<label for="message">Tu mensaje</label>
+							<textarea class="form-control border-dark-subtle" id="message" required></textarea>
+						 </div>
+						<button type="submit" class="btn btn-warning rounded-pill">Enviar</button>
+					 </form>
 				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-6">
-						<label for="email" class="form-label">Correo electronico</label>
-						<input
-							type="email"
-							class="form-control border border-black"
-							id="email"
-							name="email"
-							value="yoouho@stuff.com"
-							required
-						/>
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-6">
-						<label for="phone" class="form-label">Telefono de contacto</label>
-						<input type="tel" class="form-control border border-black" id="phone" name="phone" value="12" required />
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="mb-3 col-6">
-						<label for="message" class="form-label">Mensaje</label>
-						<textarea
-							class="form-control border border-black"
-							id="message"
-							rows="3"
-							name="message"
-							value="el mensaje"
-							required
-						>
-el mensaje</textarea
-						>
-					</div>
-				</div>
-
-				<div class="col-12">
-					<button type="submit" class="my-2 btn btn-warning">Enviar</button>
-				</div>
-			</form>
+			</div>
 		</main>
 
-		<footer>
+		<!-- <footer>
 			<div class="row text-center justify-content-center">
 				<div class="col-4">
 					<p class="display-5">BeerCraft<br />Collective</p>
@@ -131,6 +101,6 @@ el mensaje</textarea
 				</div>
 				<div class="col-4"></div>
 			</div>
-		</footer>
+		</footer> -->
 	</body>
 </html>

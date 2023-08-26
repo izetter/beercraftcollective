@@ -1,6 +1,6 @@
-const form = document.querySelector('main form');
+const form = document.querySelector('#contact-form');
 
-const endpoint = 'https://formsubmit.co/ajax/zetter.contact@gmail.com'; // https://formsubmit.co/tania.gayosso@idr.edu.mx  // https://formsubmit.co/ajax/your@email.com
+const endpoint = 'https://formsubmit.co/5f0f9995143bfb7bcf4d49ef2a9749b1';
 
 async function postMessage(body, url = endpoint) {
 	try {
