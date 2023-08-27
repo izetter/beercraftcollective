@@ -7,9 +7,13 @@ const formInputs = [nameInput, emailInput, textArea];
 const validNameChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
 let hasClickedSubmit = false;
 
-const endpoint = 'https://formsubmit.co/5f0f9995143bfb7bcf4d49ef2a9749b1';
+const endpoint = 'https://formsubmit.co/ajax/5f0f9995143bfb7bcf4d49ef2a9749b1';
 
 async function postMessage(body, url = endpoint) {
+	console.log(form.elements.name.value);
+	console.log(form.elements.email.value);
+	console.log(form.elements.message.value);
+	console.dir(form);
 	try {
 		const response = await fetch(url, {
 			method: 'POST',
@@ -73,24 +77,9 @@ function isFormValid() {
 	return formInputs.map((input) => validateInput(input)).every((validity) => validity === true);
 }
 
-function handleSubmit(evt) {
-	evt.preventDefault();
-	hasClickedSubmit = true;
-	if (isFormValid()) {
-		// postMessage(form);
-		hasClickedSubmit = false;
-		console.log('Valid');
-		formInputs.forEach((input) => setDefaultInput(input));
-	}
-	console.log('Not valid');
-}
-
 let isShaking = false;
 function shakeSubmitBtn() {
-	if (isShaking) {
-		console.log('im shaking');
-		// submitBtn.classList.remove('shake');
-	} else {
+	if (!isShaking) {
 		isShaking = true;
 		submitBtn.classList.add('shake');
 		setTimeout(() => {
@@ -100,15 +89,23 @@ function shakeSubmitBtn() {
 	}
 }
 
-submitBtn.addEventListener('click', shakeSubmitBtn);
-// form.addEventListener('submit', (evt) => handleSubmit(evt));
+function handleSubmit(evt) {
+	evt.preventDefault();
+	hasClickedSubmit = true;
+	if (isFormValid()) {
+		postMessage(form);
+		hasClickedSubmit = false;
+		console.log('Valid');
+		formInputs.forEach((input) => setDefaultInput(input));
+	} else {
+		console.log('Not valid');
+	}
+}
+
+form.addEventListener('submit', (evt) => handleSubmit(evt));
+// submitBtn.addEventListener('click', shakeSubmitBtn);
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
 formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
 })
-
-// nameInput.addEventListener('input', (evt) => onInput(evt));
-// nameInput.addEventListener('blur', (evt) => onBlur(evt));
-// emailInput.addEventListener('blur', (evt) => validateNameInput(evt.target));
-// textArea.addEventListener('blur', (evt) => validateNameInput(evt.target));
