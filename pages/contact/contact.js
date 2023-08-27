@@ -10,10 +10,6 @@ let hasClickedSubmit = false;
 const endpoint = 'https://formsubmit.co/ajax/5f0f9995143bfb7bcf4d49ef2a9749b1';
 
 async function postMessage(body, url = endpoint) {
-	console.log(form.elements.name.value);
-	console.log(form.elements.email.value);
-	console.log(form.elements.message.value);
-	console.dir(form);
 	try {
 		const response = await fetch(url, {
 			method: 'POST',
@@ -98,14 +94,17 @@ function handleSubmit(evt) {
 		console.log('Valid');
 		formInputs.forEach((input) => setDefaultInput(input));
 	} else {
+		shakeSubmitBtn();
 		console.log('Not valid');
 	}
 }
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
-// submitBtn.addEventListener('click', shakeSubmitBtn);
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
 formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
 })
+
+
+// Email input validation, disallow spaces, require arroba @ ?
