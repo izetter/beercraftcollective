@@ -1,4 +1,5 @@
 const form = document.forms['contact-form'];
+const submitBtn = form.elements['submit-btn'];
 const nameInput = form.elements['name'];
 const emailInput = form.elements['email'];
 const textArea = form.elements['message'];
@@ -84,7 +85,23 @@ function handleSubmit(evt) {
 	console.log('Not valid');
 }
 
-form.addEventListener('submit', (evt) => handleSubmit(evt));
+let isShaking = false;
+function shakeSubmitBtn() {
+	if (isShaking) {
+		console.log('im shaking');
+		// submitBtn.classList.remove('shake');
+	} else {
+		isShaking = true;
+		submitBtn.classList.add('shake');
+		setTimeout(() => {
+			submitBtn.classList.remove('shake');
+			isShaking = false;
+		}, 1100);
+	}
+}
+
+submitBtn.addEventListener('click', shakeSubmitBtn);
+// form.addEventListener('submit', (evt) => handleSubmit(evt));
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
 formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
