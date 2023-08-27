@@ -70,15 +70,15 @@
 					<form id="contact-form" class="text-center">
 						<div class="mb-4">
 						  <label for="name" class="form-label">Nombre</label>
-						  <input type="text" class="form-control border-dark-subtle" id="name" required>
+						  <input type="text" class="form-control border-dark-subtle" id="name" maxlength="50">
 						</div>
 						<div class="mb-4">
 						  <label for="email" class="form-label">Email</label>
-						  <input type="email" class="form-control border-dark-subtle" id="email" required>
+						  <input type="email" class="form-control border-dark-subtle" id="email" maxlength="256">
 						</div>
 						<div class="mb-4">
 							<label for="message">Tu mensaje</label>
-							<textarea class="form-control border-dark-subtle" id="message" required></textarea>
+							<textarea class="form-control border-dark-subtle" id="message" maxlength="500"></textarea>
 						 </div>
 						<button type="submit" class="btn btn-warning rounded-pill">Enviar</button>
 					 </form>
