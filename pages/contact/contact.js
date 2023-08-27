@@ -1,10 +1,10 @@
+/* eslint-disable no-empty */
 const form = document.forms['contact-form'];
 const submitBtn = form.elements['submit-btn'];
 const nameInput = form.elements['name'];
 const emailInput = form.elements['email'];
 const textArea = form.elements['message'];
 const formInputs = [nameInput, emailInput, textArea];
-const validNameChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
 let hasClickedSubmit = false;
 
 const endpoint = 'https://formsubmit.co/ajax/5f0f9995143bfb7bcf4d49ef2a9749b1';
@@ -24,7 +24,14 @@ async function postMessage(body, url = endpoint) {
 }
 
 function validateNameChar(evt) {
+	const validNameChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
 	if (!validNameChars.test(evt.data)) evt.preventDefault();
+}
+
+function validateEmailChar(evt) {
+	// console.log(evt.target.checkValidity());
+	// const invalidEmailChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
+	// if (invalidEmailChars.test(evt.data)) evt.preventDefault();
 }
 
 function setValidInput(input) {
@@ -55,11 +62,43 @@ function onInput(evt) {
 
 function onBlur(evt) {
 	if (evt.target.value !== '') {
-		setValidInput(evt.target);
+
+		if (evt.target.type === 'email') {
+			if (!evt.target.checkValidity()) {
+				setInvalidInput(evt.target);
+			} else {
+				setValidInput(evt.target);
+			}
+		} 
+		
+		else {
+			setValidInput(evt.target);
+		}
 	}
 }
 
+
+function validateEmailInput(emailInput) {
+	if (emailInput.value) {
+		if (emailInput.checkValidity()) {
+			setValidInput(emailInput);
+			return true;
+		} else {
+			setInvalidInput(emailInput);
+			return false;
+		}
+	} else {
+		setInvalidInput(emailInput);
+		console.log('validate email input')
+		return false;
+	}
+}
+
+
 function validateInput(input) {
+
+	if (input.type === 'email') return validateEmailInput(input);
+
 	if (input.value) {
 		setValidInput(input);
 		return true;
@@ -89,7 +128,7 @@ function handleSubmit(evt) {
 	evt.preventDefault();
 	hasClickedSubmit = true;
 	if (isFormValid()) {
-		postMessage(form);
+		// postMessage(form);
 		hasClickedSubmit = false;
 		console.log('Valid');
 		formInputs.forEach((input) => setDefaultInput(input));
@@ -101,10 +140,10 @@ function handleSubmit(evt) {
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
+emailInput.addEventListener('beforeinput', (evt) => validateEmailChar(evt));
 formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
-})
-
+});
 
 // Email input validation, disallow spaces, require arroba @ ?
