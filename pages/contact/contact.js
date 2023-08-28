@@ -4,7 +4,9 @@ const nameInput = form.elements['name'];
 const emailInput = form.elements['email'];
 const textArea = form.elements['message'];
 const formInputs = [nameInput, emailInput, textArea];
+let emailInputWasValidated = false;
 let hasClickedSubmit = false;
+let isShaking = false;
 
 const endpoint = 'https://formsubmit.co/ajax/5f0f9995143bfb7bcf4d49ef2a9749b1';
 
@@ -27,12 +29,6 @@ function validateNameChar(evt) {
 	if (!validNameChars.test(evt.data)) evt.preventDefault();
 }
 
-function validateEmailChar(evt) {
-	// console.log(evt.target.checkValidity());
-	// const invalidEmailChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
-	// if (invalidEmailChars.test(evt.data)) evt.preventDefault();
-}
-
 function setValidInput(input) {
 	input.classList.remove('border-dark-subtle', 'is-invalid');
 	input.classList.add('is-valid');
@@ -48,6 +44,16 @@ function setDefaultInput(input) {
 	input.classList.add('border-dark-subtle');
 }
 
+function onBlur(evt) {
+	if (evt.target.value !== '') {
+		if (evt.target.type === 'email') {
+			validateEmail(emailInput);
+		} else {
+			setValidInput(evt.target);
+		}
+	}
+}
+
 function onInput(evt) {
 	const { target } = evt;
 	if (target.type === 'email') {
@@ -61,13 +67,12 @@ function onInput(evt) {
 	}
 }
 
-let emailInputWasValidated = false;
 function validateEmailOnInput(emailInput) {
-	if (emailInput.value === '' && hasClickedSubmit) {
-		setInvalidInput(emailInput);
-	} else if (emailInput.value === '' && hasClickedSubmit === false) {
+	if (emailInput.value === '' && hasClickedSubmit === false) {
 		setDefaultInput(emailInput);
 		emailInputWasValidated === false;
+	} else if (emailInput.value === '' && hasClickedSubmit) {
+		setInvalidInput(emailInput);
 	} else if (emailInput.checkValidity() && hasClickedSubmit) {
 		setValidInput(emailInput);
 	} else if (emailInput.checkValidity() === false && hasClickedSubmit) {
@@ -76,21 +81,10 @@ function validateEmailOnInput(emailInput) {
 		setValidInput(emailInput);
 	} else if(emailInput.checkValidity() === false && emailInputWasValidated) {
 		setInvalidInput(emailInput);
-
 	}
 }
 
-function onBlur(evt) {
-	if (evt.target.value !== '') {
-		if (evt.target.type === 'email') {
-			validateEmailOnSubmit(emailInput);
-		} else {
-			setValidInput(evt.target);
-		}
-	}
-}
-
-function validateEmailOnSubmit(emailInput) {
+function validateEmail(emailInput) {
 	emailInputWasValidated = true;
 	if (emailInput.value) {
 		if (emailInput.checkValidity()) {
@@ -107,9 +101,7 @@ function validateEmailOnSubmit(emailInput) {
 }
 
 function validateInput(input) {
-
-	if (input.type === 'email') return validateEmailOnSubmit(input);
-
+	if (input.type === 'email') return validateEmail(input);
 	if (input.value) {
 		setValidInput(input);
 		return true;
@@ -123,7 +115,6 @@ function isFormValid() {
 	return formInputs.map((input) => validateInput(input)).every((validity) => validity === true);
 }
 
-let isShaking = false;
 function shakeSubmitBtn() {
 	if (!isShaking) {
 		isShaking = true;
@@ -152,7 +143,9 @@ function handleSubmit(evt) {
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
-// emailInput.addEventListener('beforeinput', (evt) => validateEmailChar(evt));
+emailInput.addEventListener('beforeinput', (evt) => {
+	if (/\s/.test(evt.data)) evt.preventDefault();
+});
 formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
