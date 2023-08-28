@@ -68,18 +68,18 @@ function onInput(evt) {
 }
 
 function validateEmailOnInput(emailInput) {
-	if (emailInput.value === '' && hasClickedSubmit === false) {
+	if (emailInput.value === '' && !hasClickedSubmit) {
 		setDefaultInput(emailInput);
 		emailInputWasValidated === false;
 	} else if (emailInput.value === '' && hasClickedSubmit) {
 		setInvalidInput(emailInput);
 	} else if (emailInput.checkValidity() && hasClickedSubmit) {
 		setValidInput(emailInput);
-	} else if (emailInput.checkValidity() === false && hasClickedSubmit) {
+	} else if (!emailInput.checkValidity() && hasClickedSubmit) {
 		setInvalidInput(emailInput);
 	} else if(emailInput.checkValidity() && emailInputWasValidated) {
 		setValidInput(emailInput);
-	} else if(emailInput.checkValidity() === false && emailInputWasValidated) {
+	} else if(!emailInput.checkValidity() && emailInputWasValidated) {
 		setInvalidInput(emailInput);
 	}
 }
