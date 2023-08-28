@@ -1,4 +1,3 @@
-/* eslint-disable no-empty */
 const form = document.forms['contact-form'];
 const submitBtn = form.elements['submit-btn'];
 const nameInput = form.elements['name'];
@@ -51,10 +50,9 @@ function setDefaultInput(input) {
 
 function onInput(evt) {
 	const { target } = evt;
-
-	// if (target.type === 'email') return validateEmailOnInput(target);
-
-	if (hasClickedSubmit && target.value !== '') {
+	if (target.type === 'email') {
+		validateEmailOnInput(target);
+	} else if (hasClickedSubmit && target.value !== '') {
 		setValidInput(target);
 	} else if (hasClickedSubmit && target.value === '') {
 		setInvalidInput(target);
@@ -63,26 +61,26 @@ function onInput(evt) {
 	}
 }
 
+let emailInputWasValidated = false;
 function validateEmailOnInput(emailInput) {
-	if (hasClickedSubmit && emailInput.value) {
-		if (emailInput.checkValidity()) {
-			setValidInput(emailInput);
-			return true;
-		} else {
-			setInvalidInput(emailInput);
-			return false;
-		}
-	} else if (hasClickedSubmit && !emailInput.value) {
+	if (emailInput.value === '' && hasClickedSubmit) {
 		setInvalidInput(emailInput);
-		return false;
-	} else if (emailInput.value === '') {
+	} else if (emailInput.value === '' && hasClickedSubmit === false) {
 		setDefaultInput(emailInput);
+		emailInputWasValidated === false;
+	} else if (emailInput.checkValidity() && hasClickedSubmit) {
+		setValidInput(emailInput);
+	} else if (emailInput.checkValidity() === false && hasClickedSubmit) {
+		setInvalidInput(emailInput);
+	} else if(emailInput.checkValidity() && emailInputWasValidated) {
+		setValidInput(emailInput);
+	} else if(emailInput.checkValidity() === false && emailInputWasValidated) {
+		setInvalidInput(emailInput);
+
 	}
 }
 
-
 function onBlur(evt) {
-
 	if (evt.target.value !== '') {
 		if (evt.target.type === 'email') {
 			validateEmailOnSubmit(emailInput);
@@ -90,36 +88,12 @@ function onBlur(evt) {
 			setValidInput(evt.target);
 		}
 	}
-
-	
-
-	// if (evt.target.type === 'email') {
-	// 	validateEmailOnBlur(emailInput);
-	// } else if(evt.target.value !== '') {
-	// 	setValidInput(evt.target);
-	// }
-
-	// if (evt.target.value !== '') {
-
-	// 	if (evt.target.type === 'email') {
-	// 		if (!evt.target.checkValidity()) {
-	// 			setInvalidInput(evt.target);
-	// 		} else {
-	// 			setValidInput(evt.target);
-	// 		}
-	// 	} 
-	
-	// 	else {
-	// 		setValidInput(evt.target);
-	// 	}
-	// }
 }
 
-
 function validateEmailOnSubmit(emailInput) {
+	emailInputWasValidated = true;
 	if (emailInput.value) {
 		if (emailInput.checkValidity()) {
-			console.log('valid email')
 			setValidInput(emailInput);
 			return true;
 		} else {
@@ -165,10 +139,11 @@ function handleSubmit(evt) {
 	evt.preventDefault();
 	hasClickedSubmit = true;
 	if (isFormValid()) {
-		// postMessage(form);
+		postMessage(form);
 		hasClickedSubmit = false;
-		console.log('Valid');
+		emailInputWasValidated = false;
 		formInputs.forEach((input) => setDefaultInput(input));
+		console.log('Valid');
 	} else {
 		shakeSubmitBtn();
 		console.log('Not valid');
@@ -183,4 +158,4 @@ formInputs.forEach((input) => {
 	input.addEventListener('blur', (evt) => onBlur(evt));
 });
 
-// Email input validation, disallow spaces, require arroba @ ?
+// onclick on button invalid for shake btn regardless of user agent hint on email
