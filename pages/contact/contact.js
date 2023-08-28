@@ -8,22 +8,6 @@ let emailInputWasValidated = false;
 let hasClickedSubmit = false;
 let isShaking = false;
 
-const endpoint = 'https://formsubmit.co/ajax/5f0f9995143bfb7bcf4d49ef2a9749b1';
-
-async function postMessage(body, url = endpoint) {
-	try {
-		const response = await fetch(url, {
-			method: 'POST',
-			body: new FormData(body),
-		});
-		const parsedResponse = await response.json();
-		console.log(parsedResponse);
-		alert('Gracias, te responderemos en breve');
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 function validateNameChar(evt) {
 	const validNameChars = new RegExp(/[A-Zñáéíóúüçäëïöàèìòù\s]/i);
 	if (!validNameChars.test(evt.data)) evt.preventDefault();
@@ -119,7 +103,6 @@ function handleSubmit(evt) {
 	evt.preventDefault();
 	hasClickedSubmit = true;
 	if (isFormValid()) {
-		postMessage(form);
 		hasClickedSubmit = false;
 		emailInputWasValidated = false;
 		formInputs.forEach((input) => setDefaultInput(input));
@@ -141,7 +124,11 @@ function shakeSubmitBtn() {
 }
 
 function handleClick() {
-	if (!isFormValid()) shakeSubmitBtn();
+	if (isFormValid()) {
+		form.submit();
+	} else {
+		shakeSubmitBtn();
+	}
 }
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
