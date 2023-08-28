@@ -1,3 +1,5 @@
+import { footer } from "../../components/footer.js";
+const footerElement = document.querySelector('footer');
 const form = document.forms['contact-form'];
 const submitBtn = form.elements['submit-btn'];
 const nameInput = form.elements['name'];
@@ -141,3 +143,5 @@ formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
 });
+
+footerElement.innerHTML = footer();
