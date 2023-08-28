@@ -115,6 +115,20 @@ function isFormValid() {
 	return formInputs.map((input) => validateInput(input)).every((validity) => validity === true);
 }
 
+function handleSubmit(evt) {
+	evt.preventDefault();
+	hasClickedSubmit = true;
+	if (isFormValid()) {
+		postMessage(form);
+		hasClickedSubmit = false;
+		emailInputWasValidated = false;
+		formInputs.forEach((input) => setDefaultInput(input));
+		console.log('Valid');
+	} else {
+		console.log('Not valid');
+	}
+}
+
 function shakeSubmitBtn() {
 	if (!isShaking) {
 		isShaking = true;
@@ -126,22 +140,12 @@ function shakeSubmitBtn() {
 	}
 }
 
-function handleSubmit(evt) {
-	evt.preventDefault();
-	hasClickedSubmit = true;
-	if (isFormValid()) {
-		postMessage(form);
-		hasClickedSubmit = false;
-		emailInputWasValidated = false;
-		formInputs.forEach((input) => setDefaultInput(input));
-		console.log('Valid');
-	} else {
-		shakeSubmitBtn();
-		console.log('Not valid');
-	}
+function handleClick() {
+	if (!isFormValid()) shakeSubmitBtn();
 }
 
 form.addEventListener('submit', (evt) => handleSubmit(evt));
+submitBtn.addEventListener('click', () => handleClick());
 nameInput.addEventListener('beforeinput', (evt) => validateNameChar(evt));
 emailInput.addEventListener('beforeinput', (evt) => {
 	if (/\s/.test(evt.data)) evt.preventDefault();
@@ -150,5 +154,3 @@ formInputs.forEach((input) => {
 	input.addEventListener('input', (evt) => onInput(evt));
 	input.addEventListener('blur', (evt) => onBlur(evt));
 });
-
-// onclick on button invalid for shake btn regardless of user agent hint on email
