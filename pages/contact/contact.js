@@ -107,9 +107,6 @@ function handleSubmit(evt) {
 		hasClickedSubmit = false;
 		emailInputWasValidated = false;
 		formInputs.forEach((input) => setDefaultInput(input));
-		console.log('Valid');
-	} else {
-		console.log('Not valid');
 	}
 }
 
