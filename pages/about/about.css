@@ -10,27 +10,39 @@
 	transform: rotate(-90deg);
 	-moz-transform: rotate(-90deg);
 }
+
 .main-about-1 {
 	background-color: #d59601f2;
 }
+
 .main-about-2 {
 	background-color: #37220ff2;
+	color: blanchedalmond;
+
 }
+
 .main-about-3 {
 	background-color: #f7f6f0;
+	color: black;
 }
+
 .main-about-4 {
 	background-color: #b96a25;
+	padding-bottom: 40%;
 }
 
 .main-about-5 {
 	background-color: #657733;
+	padding-top: 20%;
 }
 
 .about-us-text {
 	text-align: justify;
+	padding: 15% 0 15%;
 }
+
 .development-team {
 	font-size: small;
 	text-align: justify;
+	color: black;
 }

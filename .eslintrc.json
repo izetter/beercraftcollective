@@ -3,7 +3,10 @@
 		"browser": true,
 		"es2021": true
 	},
-	"extends": ["eslint:recommended", "prettier"],
+	"extends": [
+		"eslint:recommended",
+		"prettier"
+	],
 	"overrides": [],
 	"parserOptions": {
 		"ecmaVersion": "latest",
@@ -13,7 +16,14 @@
 		"no-console": 1,
 		"no-empty": 1,
 		"no-unused-vars": 1,
-		"no-use-before-define": 2,
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": false,
+				"classes": true,
+				"variables": true
+			}
+		],
 		"no-useless-constructor": "warn",
 		"prefer-const": "warn"
 	}
