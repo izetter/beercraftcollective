@@ -10,17 +10,27 @@
 			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 			crossorigin="anonymous"
 		/>
+		<link
+			rel="font-family: 'Borel', cursive;
+			font-family: 'Inter', sans-serif;
+			font-family: 'Quicksand', sans-serif;
+			font-family: 'Raleway', sans-serif;"
+		/>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 			crossorigin="anonymous"
 			defer
 		></script>
+		<link rel="stylesheet" href="contact.css" />
+		<script type="module" src="./contact.js"></script>
+		<script type="module" src="/components/footer.js"></script>
 	</head>
+
 	<body>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-				<img src="/assets/imges/logo.png" style="height: 50px" alt="" />
+				<img src="/assets/img/logo.png" style="height: 50px" alt="" />
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -53,67 +63,31 @@
 					</form>
 				</div>
 			</div>
-		</nav>
+		</nav> -->
 
 		<main class="container text-center my-5">
-			<form class="row col-12">
-				<div class="row justify-content-center">
-					<h1>Contáctanos</h1>
-					<div class="col-6">
-						<label for="name" class="form-label">Nombre</label>
-						<input type="text" class="form-control border border-black" id="name" />
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-6">
-						<label for="email" class="form-label">Correo electronico</label>
-						<input type="email" class="form-control border border-black" id="email" />
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-6">
-						<label for="phone" class="form-label">Telefono de contacto</label>
-						<input type="tel" class="form-control border border-black" id="phone" />
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="mb-3 col-6">
-						<label for="message" class="form-label">Mensaje</label>
-						<textarea class="form-control border border-black" id="message" rows="3"></textarea>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-3">
-						<div class="form-check">
-							<input class="form-check-input border border-black" type="checkbox" id="gridCheck" />
-							<label class="form-check-label" for="gridCheck"> Acepto términos y condiciones. </label>
+			<div class="container d-flex justify-content-center">
+				<div class="row col-7 col-lg-4">
+					<form id="contact-form" class="text-center" action="https://formsubmit.co/5f0f9995143bfb7bcf4d49ef2a9749b1" method="POST">
+						<div class="mb-4">
+						  <label for="name" class="form-label">Nombre</label>
+						  <input value="" name="name" type="text" class="form-control border-dark-subtle" id="name" maxlength="50">
 						</div>
-					</div>
+						<div class="mb-4">
+						  <label for="email" class="form-label">Email</label>
+						  <input value="" name="email" type="email" class="form-control border-dark-subtle" id="email" maxlength="256">
+						</div>
+						<div class="mb-4">
+							<label for="message" class="form-label">Tu mensaje</label>
+							<textarea class="form-control border-dark-subtle" name="message" id="message" maxlength="500">lo que sea</textarea>
+						 </div>
+						<button type="submit" id="submit-btn" class="btn btn-warning rounded-pill">Enviar</button>
+					 </form>
 				</div>
-				<div class="col-12">
-					<button type="submit" class="my-2 btn btn-warning">Enviar</button>
-				</div>
-			</form>
+			</div>
 		</main>
 
-		<footer>
-			<div class="row text-center justify-content-center">
-				<div class="col-4">
-					<p class="display-5">BeerCraft<br />Collective</p>
-				</div>
-				<div class="col-4">
-					<ul>
-						<li>Inicio</li>
-						<li>Nosotros</li>
-						<li>Contacto</li>
-						<li>Carrito</li>
-					</ul>
-				</div>
-				<div class="col-4"></div>
-			</div>
-		</footer>
+		<footer></footer>
+
 	</body>
 </html>

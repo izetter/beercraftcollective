@@ -14,7 +14,8 @@
 		"properties-order": "alphabetical"
 	},
 	"[javascriptreact]": {
-		"editor.autoClosingBrackets": "always"
+		"editor.autoClosingBrackets": "always",
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"emmet.syntaxProfiles": {
 		"html": {
@@ -41,5 +42,11 @@
 	"prettier.useTabs": true,
 	"prettier.printWidth": 120,
 	"editor.formatOnSave": true,
-	"liveServer.settings.port": 5501
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	},
+	"liveServer.settings.port": 5500
 }
