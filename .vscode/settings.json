@@ -37,7 +37,12 @@
 			"inline_break": 2
 		}
 	},
-	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	],
 	"files.eol": "\n",
 	"prettier.useTabs": true,
 	"prettier.printWidth": 120,
@@ -48,5 +53,6 @@
 	"[css]": {
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
-	"liveServer.settings.port": 5500
+	"liveServer.settings.port": 5500,
+	"files.autoSave": "off"
 }

@@ -1,0 +1,12 @@
+.card-img-top {
+	max-width: 8rem;
+	padding-bottom: 0.5rem;
+	padding-top: 1.3rem;
+}
+
+@media (min-width: 576px) {
+
+	.card {
+		max-width: 15rem;
+	}
+}
