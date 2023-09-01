@@ -25,12 +25,14 @@ export class BeerController {
 	}
 
 	// For the Web Crypto API to work, it should be running in a server (like live server) or node v19 and up
-	addBeer(name, style, origin, ABV, img) {
+	addBeer(name, style, origin, price, size, ABV, img) {
 		const beer = {
 			id: crypto.randomUUID(),
 			name,
 			style,
 			origin,
+			price,
+			size,
 			ABV,
 			img,
 		};
