@@ -1,6 +1,6 @@
 import { sampleProductList } from '../assets/sampleProductList.js';
 
-class BeerController {
+export class BeerController {
 	#items;
 
 	constructor() {
@@ -70,10 +70,10 @@ class BeerController {
 	}
 }
 
-const myBeers = new BeerController();
-sampleProductList.forEach((beer) => myBeers.addBeer(beer.name, beer.style, beer.origin, beer.ABV));
-console.log(myBeers.items);
-console.log(myBeers.removeBeer(myBeers.items[9].id));
-console.log(myBeers.getBeer(myBeers.items[0].id));
-console.log(myBeers.updateBeer(myBeers.items[0].id, { name: 'HOLAAA Y ASÍ', style: 'FUAAAAA' }));
-console.log(myBeers.items);
+// const myBeers = new BeerController();
+// sampleProductList.forEach((beer) => myBeers.addBeer(beer.name, beer.style, beer.origin, beer.ABV));
+// console.log(myBeers.items);
+// console.log(myBeers.removeBeer(myBeers.items[9].id));
+// console.log(myBeers.getBeer(myBeers.items[0].id));
+// console.log(myBeers.updateBeer(myBeers.items[0].id, { name: 'HOLAAA Y ASÍ', style: 'FUAAAAA' }));
+// console.log(myBeers.items);
