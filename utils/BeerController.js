@@ -1,4 +1,4 @@
-import { sampleProductList } from '../assets/sampleProductList.js';
+// import { sampleProductList } from '../assets/sampleProductList.js';
 
 export class BeerController {
 	#items;
