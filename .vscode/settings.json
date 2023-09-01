@@ -54,5 +54,5 @@
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
 	"liveServer.settings.port": 5500,
-	"files.autoSave": "off"
+	"files.autoSave": "onWindowChange"
 }
