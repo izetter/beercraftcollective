@@ -1,5 +1,6 @@
-export function productCard(id, name, style, origin, price, size, ABV, img) {
-	const defaultImg = '/assets/img/cerveza2.jpg';
+export function productCard({ id, name, style, origin, price, size, ABV, img }) {
+	// const defaultImg = '/assets/img/cerveza2.jpg';
+	const defaultImg = '/assets/img/generic_beer.png';
 
 	return `
 		<article class="col" data-id="${id}">
