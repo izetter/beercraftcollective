@@ -1,10 +1,18 @@
 import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { productCard } from '../../components/productCard.js';
+import { sampleProductListTest } from '../../assets/sampleProductListTest.js';
+import { BeerController } from '../../utils/BeerController.js';
+
+// const myBeers = new BeerController();
 
 // const productSection = document.getElementById('product-section');
-// navElement.innerHTML = navbar();
-// document.querySelector('nav').replaceWith(navElement);
+
+// sampleProductList;
+
+// const cardTemplate = document.createElement('template');
+// cardTemplate.innerHTML = productCard();
+// document.querySelector('nav').replaceWith(cardTemplate.content);
 
 const navTemplate = document.createElement('template');
 navTemplate.innerHTML = navbar();
