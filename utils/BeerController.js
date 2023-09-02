@@ -7,7 +7,7 @@ export class BeerController {
 		this.#items = [];
 	}
 
-	static #validProps = new Set(['id', 'name', 'style', 'origin', 'img', 'price', 'ABV', 'size']);
+	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'ABV', 'img']);
 	static validateUpdateProps(propsToEdit) {
 		if (!propsToEdit || Object.keys(propsToEdit).length === 0) {
 			throw new Error(`An object containing the key-value pairs to update must be provided`);
@@ -25,7 +25,7 @@ export class BeerController {
 	}
 
 	// For the Web Crypto API to work, it should be running in a server (like live server) or node v19 and up
-	addBeer(name, style, origin, price, size, ABV, img) {
+	addBeer({ name, style, origin, price, size, ABV, img }) {
 		const beer = {
 			id: crypto.randomUUID(),
 			name,
@@ -73,8 +73,8 @@ export class BeerController {
 }
 
 // const myBeers = new BeerController();
-// sampleProductList.forEach((beer) => myBeers.addBeer(beer.name, beer.style, beer.origin, beer.ABV));
-// console.log(myBeers.items);
+// sampleProductList.forEach((beer) => myBeers.addBeer(beer));
+// console.log(JSON.stringify(myBeers.items));
 // console.log(myBeers.removeBeer(myBeers.items[9].id));
 // console.log(myBeers.getBeer(myBeers.items[0].id));
 // console.log(myBeers.updateBeer(myBeers.items[0].id, { name: 'HOLAAA Y ASÍ', style: 'FUAAAAA' }));
