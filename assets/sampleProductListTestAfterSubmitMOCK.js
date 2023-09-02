@@ -1,4 +1,4 @@
-export const sampleProductListTest = [
+export const sampleProductListTestAfterSubmitMOCK = [
 	{
 		id: 'ff7ca890-ce54-49b5-91e0-7d2feb1f6f29',
 		name: 'Rrëy - Triple Hog',

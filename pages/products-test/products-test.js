@@ -1,7 +1,7 @@
 import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { productCard } from '../../components/productCard.js';
-import { sampleProductListTest } from '../../assets/sampleProductListTest.js';
+import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
 import { BeerController } from '../../utils/BeerController.js';
 
 /* FLOW
@@ -20,7 +20,7 @@ import { BeerController } from '../../utils/BeerController.js';
 
 4. Uset must be able to see the objects she created even after refreshing the tab.
 	SEE NOTE 4
-	
+
 */
 
 /* NOTES
@@ -66,7 +66,7 @@ import { BeerController } from '../../utils/BeerController.js';
 
 */
 
-// const myBeers = new BeerController();
+const myBeers = new BeerController();
 
 // const productSection = document.getElementById('product-section');
 
