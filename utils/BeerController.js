@@ -24,6 +24,10 @@ export class BeerController {
 		return this.#items;
 	}
 
+	setItems(items) {
+		this.#items = items;
+	}
+
 	// For the Web Crypto API to work, it should be running in a server (like live server) or node v19 and up
 	addBeer({ name, style, origin, price, size, ABV, img }) {
 		const beer = {
