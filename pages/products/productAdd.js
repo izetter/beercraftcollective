@@ -3,16 +3,14 @@ import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { productCard } from '../../components/productCard.js';
 
-const formProduct = document.forms['formProduct'];
-
+const formProduct = document.forms['form-product'];
 const name = formProduct.elements['name'];
 const style = formProduct.elements['style'];
 const origin = formProduct.elements['origin'];
 const price = formProduct.elements['price'];
 const size = formProduct.elements['size'];
 const abv = formProduct.elements['abv'];
-const img = formProduct.elements['image'];
-const formInputs = [name, style, origin, price, size, abv, img];
+// const img = formProduct.elements['image'];
 
 // instanciamos la clase de tipo BeerController
 const newProducts = new BeerController();
@@ -21,10 +19,9 @@ const newProducts = new BeerController();
 // Esto unicamente es para la simulacion de obtener los productos agregados por el adminsitrador
 const storedProducts = JSON.parse(localStorage.getItem('products'));
 if (storedProducts) {
-	newProducts.setItems(storedProducts); // Asigna la lista recuperada a newProducts.items
+	newProducts.items = storedProducts; // Asigna la lista recuperada a newProducts.items
+	showProducts();
 }
-
-localStorage.setItem('products', JSON.stringify(newProducts.items));
 
 formProduct.addEventListener('submit', addProduct);
 
@@ -37,7 +34,7 @@ function addProduct(event) {
 	const priceValue = price.value;
 	const sizeValue = size.value;
 	const abvValue = abv.value;
-	const imgValue = img.files[0];
+	// const imgValue = img.files[0];
 
 	const newBeer = {
 		name: nameValue,
@@ -46,12 +43,13 @@ function addProduct(event) {
 		price: priceValue,
 		size: sizeValue,
 		ABV: abvValue,
-		img: URL.createObjectURL(imgValue),
+		img: '',
+		// img: URL.createObjectURL(imgValue),
 	};
 
 	newProducts.addBeer(newBeer);
-
 	formProduct.reset();
+
 	// Actualiza localStorage con la lista actualizada de productos
 	localStorage.setItem('products', JSON.stringify(newProducts.items));
 	showProducts();
@@ -61,7 +59,7 @@ function showProducts() {
 	const productSection = document.getElementById('product-section');
 	const productsLocalStorage = JSON.parse(localStorage.getItem('products'));
 
-	productSection.innerHTML = '';
+	productSection.innerText = '';
 
 	productsLocalStorage.forEach((beer) => {
 		const cardTemplate = document.createElement('template');

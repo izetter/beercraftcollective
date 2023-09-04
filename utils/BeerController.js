@@ -24,11 +24,14 @@ export class BeerController {
 		return this.#items;
 	}
 
-	setItems(items) {
+	set items(items) {
 		this.#items = items;
 	}
 
-	// For the Web Crypto API to work, it should be running in a server (like live server) or node v19 and up
+	// Reminder to possibly refactor to have a new, separate method that updates
+	// local storage directly fro mhtis class. This would require refactoring products.js
+
+	// Maybe add validation to addBeer ?
 	addBeer({ name, style, origin, price, size, ABV, img }) {
 		const beer = {
 			id: crypto.randomUUID(),
