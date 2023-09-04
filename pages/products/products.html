@@ -128,81 +128,72 @@
 			</div> -->
 
 			<!--formulario para agregar producto-->
-			<section class="mt-5 container d-flex justify-content-between mx-auto">
-				<div class="row">
-					<form id="formProduct" class="row border border-dark-subtlek">
-						<h3 class="d-flex justify-content-center">Agregar Producto</h3>
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="name" class="form-label">Nombre</label>
-							<input
-								type="text"
-								required
-								name="name"
-								id="name"
-								class="form-control"
-								value=""
-								placeholder="Nombre del producto"
-							/>
-						</div>
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="style" class="form-label">Estilo</label>
-							<input
-								type="text"
-								required
-								name="style"
-								class="form-control"
-								id="style"
-								placeholder="Estilo de Cerveza"
-							/>
-						</div>
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="origin" class="form-label">Origen</label>
-							<input type="text" required name="origin" class="form-control" id="origin" placeholder="Pais de Origen" />
-						</div>
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="price" class="form-label">Precio</label>
-							<input
-								type="number"
-								required
-								name="price"
-								class="form-control"
-								id="price"
-								placeholder="Precio del Producto"
-							/>
-						</div>
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="price" class="form-label">Size</label>
-							<input
-								type="number"
-								required
-								name="size"
-								class="form-control"
-								id="size"
-								placeholder="Tamaño de la Presentacion"
-							/>
-						</div>
+			<section class="container my-3">
+				<h3 class="d-flex justify-content-center">Agregar Producto</h3>
+				<form id="formProduct" class="mx-auto row border border-dark-subtlek w-75 d-flex">
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="name" class="form-label">Nombre</label>
+						<input
+							type="text"
+							required
+							name="name"
+							id="name"
+							class="form-control"
+							value=""
+							placeholder="Nombre del producto"
+						/>
+					</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="style" class="form-label">Estilo</label>
+						<input type="text" required name="style" class="form-control" id="style" placeholder="Estilo de Cerveza" />
+					</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="origin" class="form-label">Origen</label>
+						<input type="text" required name="origin" class="form-control" id="origin" placeholder="Pais de Origen" />
+					</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="price" class="form-label">Precio</label>
+						<input
+							type="number"
+							required
+							name="price"
+							class="form-control"
+							id="price"
+							placeholder="Precio del Producto"
+						/>
+					</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="price" class="form-label">Size</label>
+						<input
+							type="number"
+							required
+							name="size"
+							class="form-control"
+							id="size"
+							placeholder="Tamaño de la Presentacion"
+						/>
+					</div>
 
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="abv" class="form-label">ABV</label>
-							<input type="number" required name="abv" class="form-control" id="abv" placeholder="ABV" />
-						</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="abv" class="form-label">ABV</label>
+						<input type="number" required name="abv" class="form-control" id="abv" placeholder="ABV" />
+					</div>
 
-						<div class="col-md-6 col-lg-6 mb-3">
-							<label for="image" class="form-label">Imagen</label>
-							<input
-								type="file"
-								required
-								name="image"
-								class="form-control"
-								id="image"
-								placeholder="Precio del Producto"
-							/>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<button id="submit-product" type="submit" class="btn btn-warning">Agregar Producto</button>
-						</div>
-					</form>
-				</div>
+					<div class="col-md-6 col-lg-6 mb-3">
+						<label for="image" class="form-label">Imagen</label>
+						<input
+							type="file"
+							required
+							name="image"
+							class="form-control"
+							id="image"
+							placeholder="Precio del Producto"
+						/>
+					</div>
+					<div class="col-md-12 col-lg-12 mb-3">
+						<button id="submit-product" type="submit" class="btn btn-warning">Agregar Producto</button>
+					</div>
+				</form>
 			</section>
 			<div class="container">
 				<div class="row">
