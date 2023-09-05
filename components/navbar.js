@@ -15,8 +15,9 @@ export function navbar() {
 						<a href="/index.html" aria-current="page"
 							class="nav-item nav-link mx-5">Inicio</a>
 						<a href="/pages/about/about.html" class="nav-item nav-link mx-5">Nosotros</a>
-						<a href="/pages/contact/contact.html" class="nav-item nav-link mx-5 active">Contacto</a>
+						<a href="/pages/contact/contact.html" class="nav-item nav-link mx-5">Contacto</a>
 						<a href="/pages/cart/cart.html" class="nav-item nav-link mx-5">Carrito</a>
+						<a href="/pages/products/products.html" class="nav-item nav-link mx-5">Manage</a>
 					</div>
 				</div>
 			</div>
