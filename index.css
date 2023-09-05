@@ -23,12 +23,13 @@ header {
 
 footer {
 	margin-top: auto;
+	padding-top: 3rem;
 }
 
 /* ----------- JUST FOR BREAKPOINT VISUALIZATION------------- */
 
 
-body {
+/* body {
 	margin-top: 40px;
 }
 
@@ -71,4 +72,4 @@ body::before {
 	body::before {
 		content: 'XXL';
 	}
-}
+} */
