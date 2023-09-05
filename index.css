@@ -1,75 +1,10 @@
-html {
-	box-sizing: border-box;
+.card-img-top {
+	max-width: 12rem;
+	/* Used to be 8rem when Erdinger Dunkel */
+	padding-bottom: 1.5rem;
+	padding-top: 1.3rem;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
+.card ul.list-group {
+	border-top: none;
 }
-
-body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-header {
-	padding-bottom: 3rem;
-	position: sticky;
-	top: 0;
-	z-index: 1;
-}
-
-footer {
-	margin-top: auto;
-	padding-top: 3rem;
-}
-
-/* ----------- JUST FOR BREAKPOINT VISUALIZATION------------- */
-
-
-/* body {
-	margin-top: 40px;
-}
-
-body::before {
-	content: 'XS';
-	color: red;
-	font-size: 2rem;
-	font-weight: bold;
-	position: fixed;
-	top: 0;
-	left: 1rem;
-}
-
-@media (min-width: 576px) {
-
-	body::before {
-		content: 'SM';
-	}
-}
-
-@media (min-width: 768px) {
-	body::before {
-		content: 'MD';
-	}
-}
-
-@media (min-width: 992px) {
-	body::before {
-		content: 'LG';
-	}
-}
-
-@media (min-width: 1200px) {
-	body::before {
-		content: 'XL';
-	}
-}
-
-@media (min-width: 1400px) {
-	body::before {
-		content: 'XXL';
-	}
-} */
