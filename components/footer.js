@@ -23,6 +23,9 @@ export function footer() {
 							<li class="nav-item">
 								<a class="nav-link text-black py-0" href="/pages/cart/cart.html">Carrito</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link text-black py-0" href="/pages/products/products.html">Manage</a>
+							</li>
 						</ul>
 					</div>
 				</div>
