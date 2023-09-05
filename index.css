@@ -7,3 +7,51 @@ html {
 *:after {
 	box-sizing: inherit;
 }
+
+/* ----------- JUST FOR BREAKPOINT VISUALIZATION------------- */
+
+
+body {
+	margin-top: 40px;
+}
+
+body::before {
+	content: 'XS';
+	color: red;
+	font-size: 2rem;
+	font-weight: bold;
+	position: fixed;
+	top: 0;
+	left: 1rem;
+}
+
+@media (min-width: 576px) {
+
+	body::before {
+		content: 'SM';
+	}
+}
+
+@media (min-width: 768px) {
+	body::before {
+		content: 'MD';
+	}
+}
+
+@media (min-width: 992px) {
+	body::before {
+		content: 'LG';
+	}
+}
+
+@media (min-width: 1200px) {
+	body::before {
+		content: 'XL';
+	}
+}
+
+@media (min-width: 1400px) {
+	body::before {
+		content: 'XXL';
+	}
+}
