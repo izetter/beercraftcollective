@@ -52,7 +52,5 @@
 	},
 	"[css]": {
 		"editor.defaultFormatter": "vscode.css-language-features"
-	},
-	"liveServer.settings.port": 5500,
-	"files.autoSave": "onFocusChange"
+	}
 }
