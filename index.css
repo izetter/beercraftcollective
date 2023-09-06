@@ -1,10 +1,16 @@
 .card-img-top {
 	width: 8rem;
-	/* Used to be 8rem when Erdinger Dunkel */
 	padding-bottom: 1.5rem;
 	padding-top: 1.3rem;
 }
 
 .card ul.list-group {
 	border-top: none;
+}
+
+a:link,
+a:visited,
+a:active {
+	color: black;
+	text-decoration: none;
 }
