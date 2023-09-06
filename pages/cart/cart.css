@@ -1,0 +1,41 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+header {
+	padding-bottom: 3rem;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+footer {
+	margin-top: auto;
+
+}
+
+.contenedor {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.centrado {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: white;
+	font-size: 60px;
+}
