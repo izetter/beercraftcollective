@@ -21,13 +21,13 @@ export function footer() {
 								<a class="nav-link text-black py-0" href="/pages/contact/contact.html">Contacto</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-black py-0" href="/pages/cart/cart.html">Mi carrito</a>
+								<a class="nav-link text-black py-0" href="/pages/cart/cart.html">Carrito</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-black py-0" href="/pages/users/users.html">Acceso a clientes</a>
+								<a class="nav-link text-black py-0" href="/pages/users/users.html">Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-black py-0" href="/pages/access/access.html">Administrador</a>
+								<a class="nav-link text-black py-0" href="/pages/access/access.html">Admin</a>
 							</li>
 						</ul>
 					</div>

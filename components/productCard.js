@@ -1,6 +1,7 @@
 export function productCard({ id, name, style, origin, price, size, ABV, img }) {
 	// const defaultImg = '/assets/img/cerveza2.jpg';
 	const defaultImg = '/assets/img/generic_beer.png';
+	const cartUrl = '/pages/cart/cart.html';
 
 	return `
 		<article class="col" data-id="${id}">
@@ -20,7 +21,7 @@ export function productCard({ id, name, style, origin, price, size, ABV, img }) 
 				<div class="card-footer">
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
-							<button type="button" class="btn btn-warning">Ver más</button>
+							<button type="button" class="btn btn-warning"><a href="${cartUrl}">Comprar</a></button>
 						</div>
 						<span>$${price}</span>
 					</div>

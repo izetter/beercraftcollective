@@ -16,8 +16,8 @@ export function navbar() {
 							class="nav-item nav-link mx-5">Inicio</a>
 						<a href="/pages/about/about.html" class="nav-item nav-link mx-5">Nosotros</a>
 						<a href="/pages/contact/contact.html" class="nav-item nav-link mx-5">Contacto</a>
-						<a href="/pages/cart/cart.html" class="nav-item nav-link mx-5">Mi carrito</a>
-						<a href="/pages/users/users.html" class="nav-item nav-link mx-5">Acceso a clientes</a>
+						<a href="/pages/cart/cart.html" class="nav-item nav-link mx-5">Carrito</a>
+						<a href="/pages/users/users.html" class="nav-item nav-link mx-5">Login</a>
 						</div>
 				</div>
 			</div>
