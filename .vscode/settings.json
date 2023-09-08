@@ -48,10 +48,9 @@
 	"prettier.printWidth": 120,
 	"editor.formatOnSave": true,
 	"[html]": {
-		"editor.defaultFormatter": "vscode.html-language-features"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[css]": {
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
-	"liveServer.settings.port": 5501
 }
