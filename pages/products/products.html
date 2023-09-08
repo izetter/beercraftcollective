@@ -27,7 +27,8 @@
 		<main class="container">
 			<section class="container my-3">
 				<h3 class="d-flex justify-content-center">Agregar Producto</h3>
-				<form id="form-product" class="mx-auto row border border-dark-subtlek w-75 d-flex">
+				<form id="form-product" class="mx-auto row border border-dark-subtlek w-75 d-flex needs-validation" novalidate>
+					<div id="liveAlertPlaceholder" class="mt-2"></div>
 					<div class="col-md-6 col-lg-6 mb-3">
 						<label for="name" class="form-label">Nombre</label>
 						<input
@@ -73,7 +74,15 @@
 
 					<div class="col-md-6 col-lg-6 mb-3">
 						<label for="abv" class="form-label">ABV</label>
-						<input type="number" required name="abv" class="form-control" id="abv" placeholder="ABV" />
+						<input
+							type="number"
+							required
+							name="abv"
+							class="form-control"
+							id="abv"
+							placeholder="ABV"
+							pattern="/^(\d{1,2}(\.\d{0,1})?)$/"
+						/>
 					</div>
 
 					<!-- <div class="col-md-6 col-lg-6 mb-3">
