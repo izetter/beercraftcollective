@@ -1,25 +1,17 @@
 {
-	"name": "beercraftcollective",
+	"name": "test-vanilla-vite-js",
+	"private": true,
+	"version": "0.0.0",
 	"type": "module",
-	"version": "1.0.0",
-	"description": "Online beer store",
-	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/izetter/beercraftcollective.git"
-	},
-	"author": "Code Craft Collective",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/izetter/beercraftcollective/issues"
-	},
-	"homepage": "https://github.com/izetter/beercraftcollective#readme",
 	"devDependencies": {
 		"eslint": "^8.46.0",
 		"eslint-config-prettier": "^9.0.0",
-		"prettier": "3.0.1"
+		"prettier": "3.0.1",
+		"vite": "^4.4.5"
 	}
 }

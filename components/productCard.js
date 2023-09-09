@@ -1,6 +1,6 @@
+import defaultImg from '../assets/img/generic_beer.png';
+
 export function productCard({ id, name, style, origin, price, size, ABV, img }) {
-	// const defaultImg = '/assets/img/cerveza2.jpg';
-	const defaultImg = '/assets/img/generic_beer.png';
 	const cartUrl = '/pages/cart/cart.html';
 
 	return `
