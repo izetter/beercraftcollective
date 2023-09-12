@@ -16,7 +16,6 @@ const abv = formProduct.elements['abv'];
 // const img = formProduct.elements['image'];
 
 const $inputsFormProduct = [name, style, origin, price, size, abv];
-console.log($inputsFormProduct);
 
 const newProducts = new BeerController();
 

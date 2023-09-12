@@ -29,23 +29,23 @@
 			<div class="col display-1 my-5">Bienvenido</div>
 			<div class="container d-flex justify-content-center">
 				<div class="row col-7 col-lg-4">
-					<form>
+					<form id="form-user">
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
 							<input
 								placeholder="tu-correo@ejemplo.com"
 								type="email"
 								class="form-control"
-								id="exampleInputEmail1"
+								id="email"
 								aria-describedby="emailHelp"
 							/>
 						</div>
 						<div class="mb-3">
 							<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-							<input placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" />
+							<input placeholder="Contraseña" type="password" class="form-control" id="password" />
 						</div>
 
-						<button type="submit" class="btn btn-warning rounded-pill">Entrar</button>
+						<button type="submit" class="btn btn-warning rounded-pill" id="login-user">Entrar</button>
 
 						<div>
 							<a href="/pages/new-user/newUsers.html" class="my-5">¿Aun no tienes cuenta? </a>
