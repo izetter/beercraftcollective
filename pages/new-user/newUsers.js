@@ -11,7 +11,8 @@ document.querySelector('footer').replaceWith(footerTemplate.content);
 
 const users = [];
 
-document.getElementById('registro-form').addEventListener('submit', function (event) {
+const formUsers = document.getElementById('registro-form');
+formUsers.addEventListener('submit', function (event) {
 	event.preventDefault(); // Prevenir la recarga de la página
 
 	// Obtener los valores del formulario
@@ -49,13 +50,12 @@ document.getElementById('registro-form').addEventListener('submit', function (ev
 		password,
 	});
 
-	// Aquí puedes realizar otras acciones, como enviar los datos a un
-
 	// guardamos en localstorage
 
 	localStorage.setItem('users', JSON.stringify(users));
 
 	// Mostrar un mensaje de éxito
-	console.log(users);
+
 	alert('Registro exitoso');
+	formUsers.reset();
 });
