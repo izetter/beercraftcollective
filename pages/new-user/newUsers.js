@@ -49,7 +49,11 @@ document.getElementById('registro-form').addEventListener('submit', function (ev
 		password,
 	});
 
-	// Aquí puedes realizar otras acciones, como enviar los datos a un servidor
+	// Aquí puedes realizar otras acciones, como enviar los datos a un
+
+	// guardamos en localstorage
+
+	localStorage.setItem('users', JSON.stringify(users));
 
 	// Mostrar un mensaje de éxito
 	console.log(users);
