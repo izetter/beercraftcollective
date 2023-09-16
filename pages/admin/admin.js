@@ -1,9 +1,19 @@
-import { BeerController } from '../../utils/BeerController.js';
 import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
-import { productCard } from '../../components/productCard.js';
+import { BeerController } from '../../utils/BeerController.js';
+import { productCardAdmin } from '../../components/productCardAdmin.js';
 
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+// FOOTER & NAVBAR ============================================================================================
+
+const navTemplate = document.createElement('template');
+navTemplate.innerHTML = navbar();
+document.querySelector('nav').replaceWith(navTemplate.content);
+
+const footerTemplate = document.createElement('template');
+footerTemplate.innerHTML = footer();
+document.querySelector('footer').replaceWith(footerTemplate.content);
+
+// INITIALIZATION ============================================================================================
 
 const formProduct = document.forms['form-product'];
 const name = formProduct.elements['name'];
@@ -12,98 +22,28 @@ const origin = formProduct.elements['origin'];
 const price = formProduct.elements['price'];
 const size = formProduct.elements['size'];
 const abv = formProduct.elements['abv'];
-
 // const img = formProduct.elements['image'];
-
 const $inputsFormProduct = [name, style, origin, price, size, abv];
+// const deleteButtons = document.querySelectorAll('article button.delete-btn');
 
-const newProducts = new BeerController();
+const beers = new BeerController();
 
-// Recupera la lista de productos de localStorage (si existe)
-const storedProducts = JSON.parse(localStorage.getItem('products'));
-if (storedProducts) {
-	newProducts.items = storedProducts;
-	showProducts();
-}
+// VALIDATION FUNCTIONS =======================================================================================
 
-formProduct.addEventListener('submit', addProduct);
-
-function addProduct(event) {
-	event.preventDefault();
-	const validationInputsForm = productFormValidation();
-
-	if (validationInputsForm) {
-		const nameValue = name.value;
-		const styleValue = style.value;
-		const originValue = origin.value;
-		const priceValue = price.value;
-		const sizeValue = size.value;
-		const abvValue = abv.value;
-		// const imgValue = img.files[0];
-
-		const newBeer = {
-			name: nameValue,
-			style: styleValue,
-			origin: originValue,
-			price: priceValue,
-			size: sizeValue,
-			ABV: abvValue,
-			img: '',
-			// img: URL.createObjectURL(imgValue),
-		};
-
-		newProducts.addBeer(newBeer);
-		formProduct.reset();
-
-		// Actualiza localStorage con la lista actualizada de productos
-		// Later maybe refactor this so all local storage handling is done within BeerController ?
-		localStorage.setItem('products', JSON.stringify(newProducts.items));
-		$inputsFormProduct.forEach((input) => {
-			setDefaultInput(input);
-		});
-		showProducts();
-	}
-	// else {
-	// // 	alert('Verifique que los campos no esten vacios y contengan los datos correctos');
-	// Quise crear una alerta con la funcion renderMessageError pero no logre que desapareciera al volver enviar el formulario
-	// // }
-}
-
-//funcion para mostrar productos
-function showProducts() {
-	const productSection = document.getElementById('product-section');
-	const productsLocalStorage = JSON.parse(localStorage.getItem('products'));
-
-	productSection.innerText = '';
-
-	productsLocalStorage.forEach((beer) => {
-		const cardTemplate = document.createElement('template');
-		cardTemplate.innerHTML = productCard(beer);
-		productSection.append(cardTemplate.content);
-	});
-}
-
-//funciones para renderizar error/succes en los inputs
 function setDefaultInput(input) {
 	input.classList.remove('is-valid', 'is-invalid');
 	input.classList.add('border-dark-subtle');
 }
-const setError = ($input) => {
+
+function setError($input) {
 	$input.classList.remove('is-valid');
 	$input.classList.add('is-invalid');
 };
-const setSuccess = ($input) => {
+
+function setSuccess($input) {
 	$input.classList.remove('is-invalid');
 	$input.classList.add('is-valid');
 };
-
-$inputsFormProduct.forEach(($input) => {
-	$input.addEventListener('blur', () => {
-		validateInputs($input);
-	});
-});
-
-///validaciones de los inputs
 
 function validateInputs($input) {
 	if ($input === abv) {
@@ -155,17 +95,90 @@ function productFormValidation() {
 	return isValid;
 }
 
-// function renderMessageError() {
-// 	const $div = document.createElement('div');
-// 	$div.classList.add('alert', 'alert-danger');
-// 	$div.textContent = 'Verifique que los campos no esten vacios y contengan los datos correctos';
-// 	alertPlaceholder.append($div);
+// ADMIN FUNCTIONS ============================================================================================
+
+function addProduct(event) {
+	event.preventDefault();
+	const validationInputsForm = productFormValidation();
+
+	if (validationInputsForm) {
+		const nameValue = name.value;
+		const styleValue = style.value;
+		const originValue = origin.value;
+		const priceValue = price.value;
+		const sizeValue = size.value;
+		const abvValue = abv.value;
+		// const imgValue = img.files[0];
+
+		const newBeer = {
+			name: nameValue,
+			style: styleValue,
+			origin: originValue,
+			price: priceValue,
+			size: sizeValue,
+			ABV: abvValue,
+			img: '',
+			// img: URL.createObjectURL(imgValue),
+		};
+
+		beers.addBeer(newBeer);
+		formProduct.reset();
+
+		// Actualiza localStorage con la lista actualizada de productos
+		// Later maybe refactor this so all local storage handling is done within BeerController ?
+		localStorage.setItem('products', JSON.stringify(beers.items));
+		$inputsFormProduct.forEach((input) => {
+			setDefaultInput(input);
+		});
+		showProducts();
+	}
+	// else {
+	// // 	alert('Verifique que los campos no esten vacios y contengan los datos correctos');
+	// Quise crear una alerta con la funcion renderMessageError pero no logre que desapareciera al volver enviar el formulario
+	// // }
+}
+
+function showProducts() {
+	const productSection = document.getElementById('product-section');
+	const productsLocalStorage = JSON.parse(localStorage.getItem('products'));
+
+	productSection.innerText = '';
+
+	productsLocalStorage.forEach((beer) => {
+		const cardTemplate = document.createElement('template');
+		cardTemplate.innerHTML = productCardAdmin(beer);
+		productSection.append(cardTemplate.content);
+	});
+}
+
+function getBeersFromLocalStorage() {
+	const storedProducts = JSON.parse(localStorage.getItem('products'));
+	if (storedProducts) {
+		beers.items = storedProducts;
+		showProducts();
+	}
+}
+
+// function deleteProduct(evt) {
+// 	const id = evt.target.dataset.id;
+// 	beers.removeBeer(id);
+// 	getBeersFromLocalStorage();
+// 	console.log(id, 'deleted')
+// 	window.location.reload();
 // }
 
-const navTemplate = document.createElement('template');
-navTemplate.innerHTML = navbar();
-document.querySelector('nav').replaceWith(navTemplate.content);
+// EXECUTION =================================================================================================
 
-const footerTemplate = document.createElement('template');
-footerTemplate.innerHTML = footer();
-document.querySelector('footer').replaceWith(footerTemplate.content);
+formProduct.addEventListener('submit', addProduct);
+
+$inputsFormProduct.forEach(($input) => {
+	$input.addEventListener('blur', () => {
+		validateInputs($input);
+	});
+});
+
+// deleteButtons.forEach((button) => button.addEventListener('click', (evt) => deleteProduct(evt)))
+
+// Recupera la lista de productos de localStorage (si existe)
+getBeersFromLocalStorage();
+
