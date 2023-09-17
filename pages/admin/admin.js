@@ -3,6 +3,8 @@ import { footer } from '../../components/footer.js';
 import { BeerController } from '../../utils/BeerController.js';
 import { productCardAdmin } from '../../components/productCardAdmin.js';
 
+import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
+
 // FOOTER & NAVBAR ============================================================================================
 
 const navTemplate = document.createElement('template');
@@ -25,7 +27,6 @@ const abv = form.elements['abv'];
 // const img = formProduct.elements['image'];
 const formInputs = [name, style, origin, price, size, abv];
 const productSection = document.getElementById('product-section');
-// const deleteButtons = document.querySelectorAll('article button.delete-btn');
 
 const beers = new BeerController();
 
@@ -98,6 +99,23 @@ function validateForm() {
 
 // ADMIN FUNCTIONS ============================================================================================
 
+function showProducts() {
+	productSection.innerText = '';
+	beers.items.forEach((beer) => {
+		const cardTemplate = document.createElement('template');
+		cardTemplate.innerHTML = productCardAdmin(beer);
+		productSection.append(cardTemplate.content);
+	});
+}
+
+function getBeersFromLocalStorage() {
+	const storedProducts = JSON.parse(localStorage.getItem('products'));
+	if (storedProducts) {
+		beers.items = storedProducts;
+		showProducts();
+	}
+}
+
 function addProduct(event) {
 	event.preventDefault();
 
@@ -121,32 +139,17 @@ function addProduct(event) {
 	}
 }
 
-function showProducts() {
-	productSection.innerText = '';
-	beers.items.forEach((beer) => {
-		const cardTemplate = document.createElement('template');
-		cardTemplate.innerHTML = productCardAdmin(beer);
-		productSection.append(cardTemplate.content);
-	});
+function deleteProduct(id) {
+	beers.removeBeer(id);
+	showProducts();
 }
-
-function getBeersFromLocalStorage() {
-	const storedProducts = JSON.parse(localStorage.getItem('products'));
-	if (storedProducts) {
-		beers.items = storedProducts;
-		showProducts();
-	}
-}
-
-// function deleteProduct(evt) {
-// 	const id = evt.target.dataset.id;
-// 	beers.removeBeer(id);
-// 	getBeersFromLocalStorage();
-// 	console.log(id, 'deleted')
-// 	window.location.reload();
-// }
 
 // EXECUTION =================================================================================================
+
+// ADDING PRODUCTS TO LOCAL STORAGE FOR TESTING
+localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
+
+
 
 formInputs.forEach(($input) => {
 	$input.addEventListener('blur', () => {
@@ -154,10 +157,10 @@ formInputs.forEach(($input) => {
 	});
 });
 
-// deleteButtons.forEach((button) => button.addEventListener('click', (evt) => deleteProduct(evt)))
-
 form.addEventListener('submit', addProduct);
-productSection.addEventListener('click', (evt) => console.log(evt.target));
+
+productSection.addEventListener('click', (evt) => {
+	if (evt.target.classList.contains('delete-btn')) deleteProduct(evt.target.dataset.id);
+});
 
 getBeersFromLocalStorage();
-
