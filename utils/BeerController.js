@@ -29,7 +29,7 @@ export class BeerController {
 	}
 
 	updateLocalStorage() {
-		localStorage.setItem('products', this.#items);
+		localStorage.setItem('products', JSON.stringify(this.#items));
 	}
 
 	// Maybe add validation to addBeer ?
