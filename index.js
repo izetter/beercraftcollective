@@ -8,7 +8,7 @@ const products = JSON.parse(localStorage.getItem('products'));
 
 // If there are products in local storage, render them. If there are not,
 // set them in local storage with the sample and then render them from local storage.
-if (products !== null) {
+if (products) {
 	products.forEach((product) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCard(product);
@@ -16,7 +16,7 @@ if (products !== null) {
 	});
 } else {
 	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-	const sampleProducts = localStorage.getItem('products');
+	const sampleProducts = JSON.parse(localStorage.getItem('products'));
 	sampleProducts.forEach((product) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCard(product);
