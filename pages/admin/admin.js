@@ -2,8 +2,7 @@ import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { BeerController } from '../../utils/BeerController.js';
 import { productCardAdmin } from '../../components/productCardAdmin.js';
-
-import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
+// import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
 
 // FOOTER & NAVBAR ============================================================================================
 
