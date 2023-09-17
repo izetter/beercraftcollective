@@ -24,7 +24,7 @@ const origin = form.elements['origin'];
 const price = form.elements['price'];
 const size = form.elements['size'];
 const abv = form.elements['abv'];
-// const img = formProduct.elements['image'];
+const img = form.elements['image'];
 const submitBtn = form.elements['submit-btn'];
 const formInputs = [name, style, origin, price, size, abv];
 const productSection = document.getElementById('product-section');
@@ -126,8 +126,7 @@ function addProduct() {
 			price: price.value,
 			size: size.value,
 			ABV: abv.value,
-			img: '',
-			// img: img.value,
+			img: img.value,
 		};
 		beers.addBeer(newBeer);
 		formInputs.forEach(($input) => setDefaultInput($input));
@@ -145,6 +144,7 @@ function startEdit(beer) {
 	price.value = beer.price;
 	size.value = beer.size;
 	abv.value = beer.abv;
+	img.value = beer.img;
 	isEditing = true;
 	submitBtn.innerText = 'Guardar Cambios';
 }
@@ -158,8 +158,7 @@ function saveEdit() {
 			price: price.value,
 			size: size.value,
 			ABV: abv.value,
-			img: '',
-			// img: img.value,
+			img: img.value,
 		};
 		beers.updateBeer(editId, updatedBeerProps);
 		submitBtn.innerText = 'Agregar Cerveza';
