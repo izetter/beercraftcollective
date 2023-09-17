@@ -25,8 +25,11 @@ const price = form.elements['price'];
 const size = form.elements['size'];
 const abv = form.elements['abv'];
 // const img = formProduct.elements['image'];
+const submitBtn = form.elements['submit-btn'];
 const formInputs = [name, style, origin, price, size, abv];
 const productSection = document.getElementById('product-section');
+let isEditing = false;
+let editId = null;
 
 const beers = new BeerController();
 
@@ -40,12 +43,12 @@ function setDefaultInput(input) {
 function setError($input) {
 	$input.classList.remove('is-valid');
 	$input.classList.add('is-invalid');
-};
+}
 
 function setSuccess($input) {
 	$input.classList.remove('is-invalid');
 	$input.classList.add('is-valid');
-};
+}
 
 function validateInput($input) {
 	if ($input === abv) {
@@ -71,11 +74,9 @@ function validateInput($input) {
 			return true;
 		}
 	} else if ($input === name || $input === origin || $input === style) {
-		// Para campos name, origin y style, verificar letras y espacios, y longitud entre 3 y 15 caracteres
-		const validLetters = /^[A-Za-z\s]+$/.test($input.value);
-		const validLength = $input.value.length >= 3 && $input.value.length <= 40;
+		const validLength = $input.value.length >= 2 && $input.value.length <= 40;
 
-		if (!validLetters || !validLength) {
+		if (!validLength) {
 			setError($input);
 			return false;
 		} else {
@@ -116,9 +117,7 @@ function getBeersFromLocalStorage() {
 	}
 }
 
-function addProduct(event) {
-	event.preventDefault();
-
+function addProduct() {
 	if (validateForm()) {
 		const newBeer = {
 			name: name.value,
@@ -130,12 +129,45 @@ function addProduct(event) {
 			img: '',
 			// img: img.value,
 		};
-
 		beers.addBeer(newBeer);
-
 		formInputs.forEach(($input) => setDefaultInput($input));
 		form.reset();
 		showProducts();
+	}
+}
+
+function startEdit(beer) {
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
+	editId = beer.id;
+	name.value = beer.name;
+	style.value = beer.style;
+	origin.value = beer.origin;
+	price.value = beer.price;
+	size.value = beer.size;
+	abv.value = beer.abv;
+	isEditing = true;
+	submitBtn.innerText = 'Guardar Cambios';
+}
+
+function saveEdit() {
+	if (validateForm()) {
+		const updatedBeerProps = {
+			name: name.value,
+			style: style.value,
+			origin: origin.value,
+			price: price.value,
+			size: size.value,
+			ABV: abv.value,
+			img: '',
+			// img: img.value,
+		};
+		beers.updateBeer(editId, updatedBeerProps);
+		submitBtn.innerText = 'Agregar Cerveza';
+		formInputs.forEach(($input) => setDefaultInput($input));
+		form.reset();
+		showProducts();
+		isEditing = false;
+		editId = null;
 	}
 }
 
@@ -146,10 +178,8 @@ function deleteProduct(id) {
 
 // EXECUTION =================================================================================================
 
-// ADDING PRODUCTS TO LOCAL STORAGE FOR TESTING
-localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-
-
+// TO ADD PRODUCTS TO LOCAL STORAGE FOR TESTING
+// localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
 
 formInputs.forEach(($input) => {
 	$input.addEventListener('blur', () => {
@@ -157,10 +187,14 @@ formInputs.forEach(($input) => {
 	});
 });
 
-form.addEventListener('submit', addProduct);
+form.addEventListener('submit', (evt) => {
+	evt.preventDefault();
+	isEditing ? saveEdit() : addProduct();
+});
 
 productSection.addEventListener('click', (evt) => {
 	if (evt.target.classList.contains('delete-btn')) deleteProduct(evt.target.dataset.id);
+	if (evt.target.classList.contains('edit-btn')) startEdit(evt.target.dataset);
 });
 
 getBeersFromLocalStorage();
