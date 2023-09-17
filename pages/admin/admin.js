@@ -15,15 +15,16 @@ document.querySelector('footer').replaceWith(footerTemplate.content);
 
 // INITIALIZATION ============================================================================================
 
-const formProduct = document.forms['form-product'];
-const name = formProduct.elements['name'];
-const style = formProduct.elements['style'];
-const origin = formProduct.elements['origin'];
-const price = formProduct.elements['price'];
-const size = formProduct.elements['size'];
-const abv = formProduct.elements['abv'];
+const form = document.forms['form-product'];
+const name = form.elements['name'];
+const style = form.elements['style'];
+const origin = form.elements['origin'];
+const price = form.elements['price'];
+const size = form.elements['size'];
+const abv = form.elements['abv'];
 // const img = formProduct.elements['image'];
 const formInputs = [name, style, origin, price, size, abv];
+const productSection = document.getElementById('product-section');
 // const deleteButtons = document.querySelectorAll('article button.delete-btn');
 
 const beers = new BeerController();
@@ -101,45 +102,28 @@ function addProduct(event) {
 	event.preventDefault();
 
 	if (validateForm()) {
-		const nameValue = name.value;
-		const styleValue = style.value;
-		const originValue = origin.value;
-		const priceValue = price.value;
-		const sizeValue = size.value;
-		const abvValue = abv.value;
-		// const imgValue = img.files[0];
-
 		const newBeer = {
-			name: nameValue,
-			style: styleValue,
-			origin: originValue,
-			price: priceValue,
-			size: sizeValue,
-			ABV: abvValue,
+			name: name.value,
+			style: style.value,
+			origin: origin.value,
+			price: price.value,
+			size: size.value,
+			ABV: abv.value,
 			img: '',
-			// img: URL.createObjectURL(imgValue),
+			// img: img.value,
 		};
 
 		beers.addBeer(newBeer);
-		formProduct.reset();
 
-		// Actualiza localStorage con la lista actualizada de productos
-		// Later maybe refactor this so all local storage handling is done within BeerController ?
-		localStorage.setItem('products', JSON.stringify(beers.items));
-		formInputs.forEach(($input) => {
-			setDefaultInput($input);
-		});
+		formInputs.forEach(($input) => setDefaultInput($input));
+		form.reset();
 		showProducts();
 	}
 }
 
 function showProducts() {
-	const productSection = document.getElementById('product-section');
-	const productsLocalStorage = JSON.parse(localStorage.getItem('products'));
-
 	productSection.innerText = '';
-
-	productsLocalStorage.forEach((beer) => {
+	beers.items.forEach((beer) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCardAdmin(beer);
 		productSection.append(cardTemplate.content);
@@ -172,8 +156,8 @@ formInputs.forEach(($input) => {
 
 // deleteButtons.forEach((button) => button.addEventListener('click', (evt) => deleteProduct(evt)))
 
-formProduct.addEventListener('submit', addProduct);
+form.addEventListener('submit', addProduct);
+productSection.addEventListener('click', (evt) => console.log(evt.target));
 
-// Recupera la lista de productos de localStorage (si existe)
 getBeersFromLocalStorage();
 
