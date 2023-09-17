@@ -23,7 +23,7 @@ const price = formProduct.elements['price'];
 const size = formProduct.elements['size'];
 const abv = formProduct.elements['abv'];
 // const img = formProduct.elements['image'];
-const $inputsFormProduct = [name, style, origin, price, size, abv];
+const formInputs = [name, style, origin, price, size, abv];
 // const deleteButtons = document.querySelectorAll('article button.delete-btn');
 
 const beers = new BeerController();
@@ -45,7 +45,7 @@ function setSuccess($input) {
 	$input.classList.add('is-valid');
 };
 
-function validateInputs($input) {
+function validateInput($input) {
 	if ($input === abv) {
 		const regExABV = /^(\d{1,2}(\.\d{0,1})?)$/;
 		const validRegex = regExABV.test($input.value);
@@ -83,11 +83,11 @@ function validateInputs($input) {
 	}
 }
 
-function productFormValidation() {
+function validateForm() {
 	let isValid = true;
 
-	$inputsFormProduct.forEach(($input) => {
-		if (!validateInputs($input)) {
+	formInputs.forEach(($input) => {
+		if (!validateInput($input)) {
 			isValid = false;
 		}
 	});
@@ -99,9 +99,8 @@ function productFormValidation() {
 
 function addProduct(event) {
 	event.preventDefault();
-	const validationInputsForm = productFormValidation();
 
-	if (validationInputsForm) {
+	if (validateForm()) {
 		const nameValue = name.value;
 		const styleValue = style.value;
 		const originValue = origin.value;
@@ -127,15 +126,11 @@ function addProduct(event) {
 		// Actualiza localStorage con la lista actualizada de productos
 		// Later maybe refactor this so all local storage handling is done within BeerController ?
 		localStorage.setItem('products', JSON.stringify(beers.items));
-		$inputsFormProduct.forEach((input) => {
-			setDefaultInput(input);
+		formInputs.forEach(($input) => {
+			setDefaultInput($input);
 		});
 		showProducts();
 	}
-	// else {
-	// // 	alert('Verifique que los campos no esten vacios y contengan los datos correctos');
-	// Quise crear una alerta con la funcion renderMessageError pero no logre que desapareciera al volver enviar el formulario
-	// // }
 }
 
 function showProducts() {
@@ -169,15 +164,15 @@ function getBeersFromLocalStorage() {
 
 // EXECUTION =================================================================================================
 
-formProduct.addEventListener('submit', addProduct);
-
-$inputsFormProduct.forEach(($input) => {
+formInputs.forEach(($input) => {
 	$input.addEventListener('blur', () => {
-		validateInputs($input);
+		validateInput($input);
 	});
 });
 
 // deleteButtons.forEach((button) => button.addEventListener('click', (evt) => deleteProduct(evt)))
+
+formProduct.addEventListener('submit', addProduct);
 
 // Recupera la lista de productos de localStorage (si existe)
 getBeersFromLocalStorage();
