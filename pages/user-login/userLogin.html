@@ -25,32 +25,44 @@
 		<header>
 			<nav></nav>
 		</header>
+
 		<main class="container text-center">
-			<div class="col display-1 my-5">Bienvenido</div>
-			<div class="container d-flex justify-content-center">
-				<div class="row col-7 col-lg-4">
-					<form id="form-user">
-						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-							<input
-								placeholder="tu-correo@ejemplo.com"
-								type="email"
-								class="form-control"
-								id="email"
-								aria-describedby="emailHelp"
-							/>
+			<div class="container w-75">
+				<div class="row">
+					<div class="col-md-6 col-lg-6 border rounded-5 section-login d-flex flex-column justify-content-center">
+						<div class="col-md-12 text-center my-2">
+							<h2>BIENVENIDO</h2>
+							<span>Inicia Sesion</span>
 						</div>
-						<div class="mb-3">
-							<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-							<input placeholder="Contraseña" type="password" class="form-control" id="password" />
-						</div>
+						<div class="col-md-12 my-5">
+							<form id="form-user">
+								<div class="mb-4">
+									<label for="email" class="form-label">Correo Electrónico</label>
+									<input
+										placeholder="tu-correo@ejemplo.com"
+										type="email"
+										class="form-control"
+										id="email"
+										aria-describedby="emailHelp"
+									/>
+								</div>
+								<div class="mb-4">
+									<label for="password" class="form-label">Contraseña</label>
+									<input placeholder="Contraseña" type="password" class="form-control" id="password" />
+								</div>
+								<div class="my-3 d-grid gap-2 col-6 mx-auto">
+									<button type="submit" class="btn btn-warning" id="login-user">Entrar</button>
+								</div>
 
-						<button type="submit" class="btn btn-warning rounded-pill" id="login-user">Entrar</button>
-
-						<div>
-							<a href="/pages/new-user/newUser.html" class="my-5">¿Aun no tienes cuenta? </a>
+								<div class="my-3">
+									<a href="/pages/new-user/newUser.html" class="my-5">¿Aun no tienes cuenta? </a>
+								</div>
+							</form>
 						</div>
-					</form>
+					</div>
+					<div class="col-md-6 col-lg-6 d-flex flex-column justify-content-center">
+						<img src="../../assets/img/cervsu-removebg.png" alt="" class="img-fluid" />
+					</div>
 				</div>
 			</div>
 		</main>

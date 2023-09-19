@@ -4,3 +4,7 @@
 	perspective: 1000px;
 	transform: translate3d(0, 0, 0);
 }
+
+.section-login {
+	background-color: #F7F6F0;
+}
