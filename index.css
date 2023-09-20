@@ -60,3 +60,7 @@ a:active {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+#beer-not-found {
+	display: none;
+}
