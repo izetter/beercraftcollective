@@ -4,6 +4,7 @@ import { productCard } from './components/productCard.js';
 import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
 
 const searchInput = document.querySelector('#search-items');
+const notFound = document.querySelector('#beer-not-found');
 
 const productSection = document.getElementById('product-section');
 const products = JSON.parse(localStorage.getItem('products'));
@@ -35,6 +36,7 @@ function handleInput() {
 			return true;
 		}
 	});
+	matchingProducts.length === 0 ? (notFound.style.display = 'block') : (notFound.style.display = 'none');
 	showProducts(matchingProducts);
 }
 
