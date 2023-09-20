@@ -22,7 +22,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 	{
 		id: '2d1750d7-bee9-4c60-b679-c51354cdbeed',
 		name: 'Cerveza Charro',
-		style: 'Plisner',
+		style: 'Pilsner',
 		origin: 'CDMX',
 		price: 90,
 		size: 350,
