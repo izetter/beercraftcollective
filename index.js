@@ -17,7 +17,17 @@ function showProducts(productList) {
 }
 
 function handleInput() {
-	// searchInput.value
+	const searchStr = searchInput.value.toLocaleLowerCase('en-US');
+	const matchingProducts = products.filter((product) => {
+		if (
+			product.name.toLocaleLowerCase('en-US').includes(searchStr) ||
+			product.style.toLocaleLowerCase('en-US').includes(searchStr) ||
+			product.origin.toLocaleLowerCase('en-US').includes(searchStr)
+		) {
+			return true;
+		}
+	});
+	showProducts(matchingProducts);
 }
 
 // If there are products in local storage, render them. If there are not,
