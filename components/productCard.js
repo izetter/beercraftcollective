@@ -16,8 +16,11 @@ export function productCard({ id, name, style, origin, price, size, ABV, img }) 
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">Estilo: <span class="text-muted">${style}</span></li>
 					<li class="list-group-item">Origen: <span class="text-muted">${origin}</span></li>
-					<li class="list-group-item">ABV: <span class="text-muted">${ABV}%</span></li>
-				</ul>
+					<li class="list-group-item">
+						<span class="text-muted">
+							<span data-tooltip="Porcentaje de Alcohol: ${ABV}%">ABV: ${ABV}%</span>
+						</span>
+					</li>
 				<div class="card-footer">
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
