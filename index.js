@@ -9,6 +9,7 @@ const productSection = document.getElementById('product-section');
 const products = JSON.parse(localStorage.getItem('products'));
 
 function showProducts(productList) {
+	productSection.innerText = null;
 	productList.forEach((product) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCard(product);
@@ -16,13 +17,20 @@ function showProducts(productList) {
 	});
 }
 
+function normalizeStr(str) {
+	return str
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.toLowerCase();
+}
+
 function handleInput() {
-	const searchStr = searchInput.value.toLocaleLowerCase('en-US');
+	const searchStr = normalizeStr(searchInput.value);
 	const matchingProducts = products.filter((product) => {
 		if (
-			product.name.toLocaleLowerCase('en-US').includes(searchStr) ||
-			product.style.toLocaleLowerCase('en-US').includes(searchStr) ||
-			product.origin.toLocaleLowerCase('en-US').includes(searchStr)
+			normalizeStr(product.name).includes(searchStr) ||
+			normalizeStr(product.style).includes(searchStr) ||
+			normalizeStr(product.origin).includes(searchStr)
 		) {
 			return true;
 		}
