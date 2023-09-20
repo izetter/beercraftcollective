@@ -24,10 +24,10 @@ export function footer() {
 								<a class="nav-link text-black py-0" href="/pages/cart/cart.html">Carrito</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-black py-0" href="/pages/users/users.html">Login</a>
+								<a class="nav-link text-black py-0" href="/pages/user-login/userLogin.html">Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-black py-0" href="/pages/access/access.html">Admin</a>
+								<a class="nav-link text-black py-0" href="/pages/admin-login/adminLogin.html">Admin</a>
 							</li>
 						</ul>
 					</div>

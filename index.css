@@ -14,3 +14,53 @@ a:active {
 	color: black;
 	text-decoration: none;
 }
+
+#carouselBeer {
+	max-width: auto;
+	max-height: auto;
+	margin: 10px auto;
+}
+
+#carouselBeer .carousel-item img {
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+	background-color: transparent;
+	border: none;
+	border-radius: 20px;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color 0.3s ease;
+}
+
+[data-tooltip]::before {
+	content: attr(data-tooltip);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 0.2s;
+	pointer-events: none;
+	bottom: 100%;
+}
+
+[data-tooltip]:hover::before {
+	opacity: 1;
+}
+
+[data-tooltip]::before {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#beer-not-found {
+	display: none;
+}

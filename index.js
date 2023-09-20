@@ -1,18 +1,56 @@
 import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
-import { sampleProductList } from './assets/sampleProductList.js'; // This object is just to simulate the values ENTERED in the form, NOT to simulate the RESULTS of many form submissions that get processed by addBeer...
-import { BeerController } from './utils/BeerController.js';
+import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
 
-const myBeers = new BeerController();
-sampleProductList.forEach((beer) => myBeers.addBeer(beer));
+const searchInput = document.querySelector('#search-items');
+const notFound = document.querySelector('#beer-not-found');
 
 const productSection = document.getElementById('product-section');
-myBeers.items.forEach((beer) => {
-	const cardTemplate = document.createElement('template');
-	cardTemplate.innerHTML = productCard(beer);
-	productSection.append(cardTemplate.content);
-});
+const products = JSON.parse(localStorage.getItem('products'));
+
+function showProducts(productList) {
+	productSection.innerText = null;
+	productList.forEach((product) => {
+		const cardTemplate = document.createElement('template');
+		cardTemplate.innerHTML = productCard(product);
+		productSection.append(cardTemplate.content);
+	});
+}
+
+function normalizeStr(str) {
+	return str
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.toLowerCase();
+}
+
+function handleInput() {
+	const searchStr = normalizeStr(searchInput.value);
+	const matchingProducts = products.filter((product) => {
+		if (
+			normalizeStr(product.name).includes(searchStr) ||
+			normalizeStr(product.style).includes(searchStr) ||
+			normalizeStr(product.origin).includes(searchStr)
+		) {
+			return true;
+		}
+	});
+	matchingProducts.length === 0 ? (notFound.style.display = 'block') : (notFound.style.display = 'none');
+	showProducts(matchingProducts);
+}
+
+// If there are products in local storage, render them. If there are not,
+// set them in local storage with the sample and then render them from local storage.
+if (products) {
+	showProducts(products);
+} else {
+	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
+	const sampleProducts = JSON.parse(localStorage.getItem('products'));
+	showProducts(sampleProducts);
+}
+
+searchInput.addEventListener('input', handleInput);
 
 const navTemplate = document.createElement('template');
 navTemplate.innerHTML = navbar();

@@ -28,8 +28,9 @@ export class BeerController {
 		this.#items = items;
 	}
 
-	// Reminder to possibly refactor to have a new, separate method that updates
-	// local storage directly fro mhtis class. This would require refactoring products.js
+	updateLocalStorage() {
+		localStorage.setItem('products', JSON.stringify(this.#items));
+	}
 
 	// Maybe add validation to addBeer ?
 	addBeer({ name, style, origin, price, size, ABV, img }) {
@@ -44,6 +45,7 @@ export class BeerController {
 			img,
 		};
 		this.#items.push(beer);
+		this.updateLocalStorage();
 		return beer;
 	}
 
@@ -57,6 +59,7 @@ export class BeerController {
 			for (let i = 0; i < this.#items.length; i++) {
 				if (this.#items[i].id === id) {
 					this.#items[i] = { ...this.#items[i], ...propsToEdit };
+					this.updateLocalStorage();
 					return this.#items[i];
 				}
 			}
@@ -75,14 +78,7 @@ export class BeerController {
 				return false;
 			}
 		});
+		this.updateLocalStorage();
 		return removedBeer;
 	}
 }
-
-// const myBeers = new BeerController();
-// sampleProductList.forEach((beer) => myBeers.addBeer(beer));
-// console.log(JSON.stringify(myBeers.items));
-// console.log(myBeers.removeBeer(myBeers.items[9].id));
-// console.log(myBeers.getBeer(myBeers.items[0].id));
-// console.log(myBeers.updateBeer(myBeers.items[0].id, { name: 'HOLAAA Y ASÍ', style: 'FUAAAAA' }));
-// console.log(myBeers.items);
