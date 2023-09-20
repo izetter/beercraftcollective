@@ -19,18 +19,6 @@
 		<link rel="stylesheet" href="/globalStyles.css" />
 		<link rel="stylesheet" href="/index.css" />
 		<script type="module" src="/index.js"></script>
-		<style>
-			#carouselBeer {
-				max-width: auto;
-				max-height: auto;
-				margin: 10px auto;
-			}
-			#carouselBeer .carousel-item img {
-				width: 100%;
-				height: auto;
-				border-radius: 20px;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -39,6 +27,34 @@
 		</header>
 		<main class="container">
 			<div id="carouselBeer" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+				<div class="carousel-indicators">
+					<button
+						type="button"
+						data-bs-target="#carousel-indicators"
+						data-bs-slide-to="0"
+						class="active"
+						aria-current="true"
+						aria-label="Slide 1"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#carousel-indicators"
+						data-bs-slide-to="1"
+						aria-label="Slide 2"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#carousel-indicators"
+						data-bs-slide-to="2"
+						aria-label="Slide 3"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#carousel-indicators"
+						data-bs-slide-to="3"
+						aria-label="Slide 4"
+					></button>
+				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="/assets/img/Frame1.png" class="d-block w-100" alt="Slide 1" />

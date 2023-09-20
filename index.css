@@ -21,6 +21,12 @@ a:active {
 	margin: 10px auto;
 }
 
+#carouselBeer .carousel-item img {
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
 	background-color: transparent;
