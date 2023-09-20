@@ -3,26 +3,34 @@ import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
 import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
 
+const searchInput = document.querySelector('#search-items');
+
 const productSection = document.getElementById('product-section');
 const products = JSON.parse(localStorage.getItem('products'));
 
-// If there are products in local storage, render them. If there are not,
-// set them in local storage with the sample and then render them from local storage.
-if (products) {
-	products.forEach((product) => {
-		const cardTemplate = document.createElement('template');
-		cardTemplate.innerHTML = productCard(product);
-		productSection.append(cardTemplate.content);
-	});
-} else {
-	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-	const sampleProducts = JSON.parse(localStorage.getItem('products'));
-	sampleProducts.forEach((product) => {
+function showProducts(productList) {
+	productList.forEach((product) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCard(product);
 		productSection.append(cardTemplate.content);
 	});
 }
+
+function handleInput() {
+	// searchInput.value
+}
+
+// If there are products in local storage, render them. If there are not,
+// set them in local storage with the sample and then render them from local storage.
+if (products) {
+	showProducts(products);
+} else {
+	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
+	const sampleProducts = JSON.parse(localStorage.getItem('products'));
+	showProducts(sampleProducts);
+}
+
+searchInput.addEventListener('input', handleInput);
 
 const navTemplate = document.createElement('template');
 navTemplate.innerHTML = navbar();
