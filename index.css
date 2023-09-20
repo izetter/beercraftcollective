@@ -14,3 +14,9 @@ a:active {
 	color: black;
 	text-decoration: none;
 }
+
+#carouselBeer {
+	max-width: auto;
+	max-height: auto;
+	margin: 10px auto;
+}
