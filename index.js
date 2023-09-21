@@ -7,7 +7,7 @@ const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
 
 const productSection = document.getElementById('product-section');
-const products = JSON.parse(localStorage.getItem('products'));
+let products = JSON.parse(localStorage.getItem('products'));
 
 function showProducts(productList) {
 	productSection.innerText = null;
@@ -46,8 +46,8 @@ if (products) {
 	showProducts(products);
 } else {
 	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-	const sampleProducts = JSON.parse(localStorage.getItem('products'));
-	showProducts(sampleProducts);
+	products = JSON.parse(localStorage.getItem('products'));
+	showProducts(products);
 }
 
 searchInput.addEventListener('input', handleInput);
