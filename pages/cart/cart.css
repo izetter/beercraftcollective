@@ -35,12 +35,12 @@ footer {
 }
 
 .card {
+	border: transparent;
+	border-radius: 1rem;
+	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin: auto;
 	max-width: 950px;
 	width: 90%;
-	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 1rem;
-	border: transparent;
 
 }
 
@@ -52,31 +52,31 @@ footer {
 
 .cart {
 	background-color: #fff;
-	padding: 4vh 5vh;
 	border-bottom-left-radius: 1rem;
 	border-top-left-radius: 1rem;
+	padding: 4vh 5vh;
 }
 
 @media(max-width:767px) {
 	.cart {
-		padding: 4vh;
 		border-bottom-left-radius: unset;
 		border-top-right-radius: 1rem;
+		padding: 4vh;
 	}
 }
 
 .summary {
 	background-color: #ddd;
-	border-top-right-radius: 1rem;
 	border-bottom-right-radius: 1rem;
-	padding: 4vh;
+	border-top-right-radius: 1rem;
 	color: rgb(65, 65, 65);
+	padding: 4vh;
 }
 
 @media(max-width:767px) {
 	.summary {
-		border-top-right-radius: unset;
 		border-bottom-left-radius: 1rem;
+		border-top-right-radius: unset;
 	}
 }
 
@@ -112,8 +112,8 @@ a {
 }
 
 .close {
-	margin-left: auto;
 	font-size: 0.7rem;
+	margin-left: auto;
 }
 
 .back-to-shop {
@@ -133,21 +133,21 @@ form {
 }
 
 select {
+	background-color: rgb(247, 247, 247);
 	border: 1px solid rgba(0, 0, 0, 0.137);
-	padding: 1.5vh 1vh;
 	margin-bottom: 4vh;
 	outline: none;
+	padding: 1.5vh 1vh;
 	width: 100%;
-	background-color: rgb(247, 247, 247);
 }
 
 input {
+	background-color: rgb(247, 247, 247);
 	border: 1px solid rgba(0, 0, 0, 0.137);
-	padding: 1vh;
 	margin-bottom: 4vh;
 	outline: none;
+	padding: 1vh;
 	width: 100%;
-	background-color: rgb(247, 247, 247);
 }
 
 input:focus::-webkit-input-placeholder {
@@ -157,22 +157,22 @@ input:focus::-webkit-input-placeholder {
 .btn {
 	background-color: #000;
 	border-color: #000;
+	border-radius: 0;
 	color: white;
-	width: 100%;
 	font-size: 0.7rem;
 	margin-top: 4vh;
 	padding: 1vh;
-	border-radius: 0;
+	width: 100%;
 }
 
 .btn:focus {
 	box-shadow: none;
-	outline: none;
 	box-shadow: none;
-	color: white;
 	-webkit-box-shadow: none;
-	-webkit-user-select: none;
+	color: white;
+	outline: none;
 	transition: none;
+	-webkit-user-select: none;
 }
 
 .btn:hover {
@@ -190,9 +190,9 @@ a:hover {
 
 #code {
 	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
-	background-repeat: no-repeat;
 	background-position-x: 95%;
 	background-position-y: center;
+	background-repeat: no-repeat;
 
 }
 
@@ -200,8 +200,8 @@ a:hover {
 
 	height: 250px;
 
-	width: 250px;
-
 	object-fit: cover;
+
+	width: 250px;
 
 }
