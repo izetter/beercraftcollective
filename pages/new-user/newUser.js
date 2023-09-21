@@ -58,4 +58,5 @@ formUsers.addEventListener('submit', function (event) {
 
 	alert('Registro exitoso');
 	formUsers.reset();
+	window.location.href = '/index.html';
 });
