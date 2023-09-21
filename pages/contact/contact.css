@@ -5,8 +5,16 @@
 	transform: translate3d(0, 0, 0);
 }
 
+#contact-wrapper {
+	border: 5px solid rgb(84, 84, 84);
+	background-color: white;
+	padding: 2.5rem 0.8rem;
+	border-radius: 3rem;
+}
+
 body {
 	background-image: url(/assets/img/tasty-american-beer-composition.jpg);
+	backdrop-filter: blur(0px);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
