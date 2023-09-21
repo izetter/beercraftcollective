@@ -1,24 +1,11 @@
-html {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-
 body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	min-height: 100vh;
-
-
 }
 
 header {
-
 	position: sticky;
 	top: 0;
 	z-index: 1;
@@ -26,9 +13,7 @@ header {
 
 footer {
 	margin-top: auto;
-
 }
-
 
 .title {
 	margin-bottom: 5vh;
@@ -41,10 +26,9 @@ footer {
 	margin: auto;
 	max-width: 950px;
 	width: 90%;
-
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
 	.card {
 		margin: 3vh auto;
 	}
@@ -57,7 +41,7 @@ footer {
 	padding: 4vh 5vh;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
 	.cart {
 		border-bottom-left-radius: unset;
 		border-top-right-radius: 1rem;
@@ -73,7 +57,7 @@ footer {
 	padding: 4vh;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
 	.summary {
 		border-bottom-left-radius: 1rem;
 		border-top-right-radius: unset;
@@ -189,19 +173,15 @@ a:hover {
 }
 
 #code {
-	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)),
+		url('https://img.icons8.com/small/16/000000/long-arrow-right.png');
 	background-position-x: 95%;
 	background-position-y: center;
 	background-repeat: no-repeat;
-
 }
 
 .img-fluid {
-
 	height: 250px;
-
 	object-fit: cover;
-
 	width: 250px;
-
 }
