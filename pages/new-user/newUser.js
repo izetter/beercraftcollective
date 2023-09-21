@@ -50,12 +50,10 @@ formUsers.addEventListener('submit', function (event) {
 		password,
 	});
 
-	// guardamos en localstorage
-
+	// Guardar en localStorage
 	localStorage.setItem('users', JSON.stringify(users));
 
 	// Mostrar un mensaje de éxito
-
 	alert('Registro exitoso');
 	formUsers.reset();
 	window.location.href = '/index.html';
