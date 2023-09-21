@@ -21,9 +21,15 @@ a:active {
 	margin: 10px auto;
 }
 
+#carouselBeer .carousel-item img {
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
-	background-color: #333;
+	background-color: transparent;
 	border: none;
 	border-radius: 20px;
 	width: 50px;
@@ -31,11 +37,6 @@ a:active {
 	top: 50%;
 	transform: translateY(-50%);
 	transition: background-color 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-	background-color: #555;
 }
 
 [data-tooltip]::before {
@@ -58,4 +59,8 @@ a:active {
 [data-tooltip]::before {
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+#beer-not-found {
+	display: none;
 }
