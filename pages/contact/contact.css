@@ -5,6 +5,14 @@
 	transform: translate3d(0, 0, 0);
 }
 
+body {
+	background-image: url(/assets/img/tasty-american-beer-composition.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
 textarea#message {
 	max-height: 22rem;
 	min-height: 9rem;
