@@ -75,5 +75,60 @@
 			</div>
 		</main>
 		<footer></footer>
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="ageVerificationModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+			data-bs-backdrop="static"
+			data-bs-keyboard="false"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Verificación de Edad</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>¿Eres mayor de 18 años?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+						<button type="button" class="btn btn-primary" id="yesButton">Sí</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const ageVerificationCompleted = localStorage.getItem('ageVerificationCompleted');
+
+				if (!ageVerificationCompleted) {
+					const ageVerificationModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'));
+					ageVerificationModal.show();
+
+					document.getElementById('yesButton').addEventListener('click', function () {
+						localStorage.setItem('ageVerificationCompleted', 'true');
+
+						// Cerrar el modal
+						ageVerificationModal.hide();
+					});
+
+					const closeButton = document.querySelector('#ageVerificationModal .btn-close');
+
+					closeButton.addEventListener('click', function () {
+						window.location.href = 'https://www.google.com';
+					});
+
+					const noButton = document.querySelector('#ageVerificationModal .btn-secondary');
+
+					noButton.addEventListener('click', function () {
+						window.location.href = 'https://www.google.com';
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
