@@ -3,6 +3,7 @@ import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
 import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
 
+
 const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
 

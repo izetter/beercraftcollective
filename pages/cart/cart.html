@@ -17,92 +17,30 @@
 			defer
 		></script>
 		<link rel="stylesheet" href="./cart.css" />
-		<link rel="stylesheet" href="/globalStyles.css" />
+		<link rel="stylesheet" href="./cart.css" />
+		<script type="module" src="/components/productCard.js"></script>
 		<script type="module" src="./cart.js"></script>
+		<script type="module" src="./order.js"></script>
 	</head>
-
 	<body>
-		
 		<header>
 			<nav></nav>
 		</header>
-	
-			<div class="contenedor">
-				<div class="card my-5">
-					<div class="row">
-						<div class="col-md-8 cart">
-							<div class="title">
-								<div class="row">
-									<div class="col"><h4><b>Mi carrito</b></h4></div>
-									<div class="col align-self-center text-right text-muted">3 items</div>
-								</div>
-							</div>    
-							<div class="row border-top border-bottom">
-								<div class="row main align-items-center">
-									<div class="col-2"><img class="img-fluid" src="/assets/img/cerveza1.jpg"></div>
-									<div class="col">
-										<div class="row text-muted">Calavera - Imperial Stout</div>
-										<div class="row">Botella 355ml </div>
-									</div>
-									<div class="col">
-										<a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-									</div>
-									<div class="col">&dollar; 75.00 <span class="close">&#10005;</span></div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="row main align-items-center">
-									<div class="col-2"><img class="img-fluid" src="/assets/img/cerveza2.jpg"></div>
-									<div class="col">
-										<div class="row text-muted">Hercules - Lanzallamas</div>
-										<div class="row">Botella 355ml </div>
-									</div>
-									<div class="col">
-										<a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-									</div>
-									<div class="col">&dollar; 150.00 <span class="close">&#10005;</span></div>
-								</div>
-							</div>
-							<div class="row border-top border-bottom">
-								<div class="row main align-items-center">
-									<div class="col-2"><img class="img-fluid" src="/assets/img/cerveza3.jpg"></div>
-									<div class="col">
-										<div class="row text-muted">Wendlandt - Perro del Mar</div>
-										<div class="row">Botella 355ml</div>
-									</div>
-									<div class="col">
-										<a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-									</div>
-									<div class="col">&dollar; 70.00 <span class="close">&#10005;</span></div>
-								</div>
-							</div>
-							<div class="back-to-shop"><a href="/index.html">&leftarrow;</a><span class="text-muted">Regresar al Inicio</span></div>
-						</div>
-						<div class="col-md-4 summary">
-							<div><h5><b>Total</b></h5></div>
-							<hr>
-							<div class="row">
-								<div class="col" style="padding-left:0;">Articulos 3</div>
-								<div class="col text-right">&dollar; 300.00</div>
-							</div>
-							<form>
-								<p>Entrega</p>
-								<select><option class="text-muted">Entrega normal por Estafota - &dollar;150.00</option></select>
-								<p>Código de regalo</p>
-								<input id="code" placeholder="Código aquí">
-							</form>
-							<div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-								<div class="col">TOTAL</div>
-								<div class="col text-right">&dollar; 450.00</div>
-							</div>
-							<button class="btn">PAGAR</button>
-						</div>
-					</div>
-					
-				</div>
-			  </div>
-		
-
+		<div class="container">
+			<h1>Carrito</h1>
+			<div class="row product-list" id="items">
+				<!-- Los productos se agregarán aquí dinámicamente -->
+			</div>
+			<div class="cart">
+				<h2>Resumen de compra</h2>
+				<ul class="list-group" id="carrito">
+					<!-- Los productos del carrito se mostrarán aquí dinámicamente -->
+				</ul>
+				<p>Total: $<span id="total">0.00</span></p>
+				<button id="boton-vaciar">Vaciar Carrito</button>
+			</div>
+		</div>
 		<footer></footer>
+		<script src="cart.js"></script>
 	</body>
-</html>
+	</html>
