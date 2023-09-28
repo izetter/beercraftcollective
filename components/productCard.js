@@ -21,10 +21,19 @@ export function productCard({ id, name, style, origin, price, size, ABV, img }) 
 							<span data-tooltip="Porcentaje de Alcohol: ${ABV}%">ABV: ${ABV}%</span>
 						</span>
 					</li>
-				<div class="card-footer">
+					<div class="card-footer">
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
-							<button type="button" class="btn btn-warning"><a href="${cartUrl}">Comprar</a></button>
+							<button type="button" class="btn btn-warning buy-button" data-product='${JSON.stringify({
+								id,
+								name,
+								style,
+								origin,
+								price,
+								size,
+								ABV,
+								img,
+							})}'>Comprar</button>
 						</div>
 						<span>$${price}</span>
 					</div>

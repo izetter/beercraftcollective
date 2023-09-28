@@ -1,116 +1,46 @@
 import { footer } from '../../components/footer.js';
 import { navbar } from '../../components/navbar.js';
-import { productCard } from '../../components/productCard.js';
-import { Cart } from './order.js';
 
-const footerElement = document.querySelector('footer');
+document.addEventListener('DOMContentLoaded', function () {});
 
-footerElement.innerHTML = footer();
+// Variables para el carrito de compras
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cart-total');
+const checkoutButton = document.getElementById('checkout-button');
+let cart = [];
 
-const navTemplate = document.createElement('template');
-navTemplate.innerHTML = navbar();
-document.querySelector('nav').replaceWith(navTemplate.content);
+// Función para actualizar el contenido del carrito
+function updateCart() {
+	cartItems.innerHTML = '';
+	let total = 0;
 
-const footerTemplate = document.createElement('template');
-footerTemplate.innerHTML = footer();
-document.querySelector('footer').replaceWith(footerTemplate.content);
+	cart.forEach((product) => {
+		const cartItem = document.createElement('li');
+		cartItem.innerText = `${product.name} - $${product.price.toFixed(2)}`;
+		cartItems.appendChild(cartItem);
+		total += product.price;
+	});
 
-//add product to the Cart
-class Cart {
-	buyProduct(e) {
-		e.preventDefault();
-		if (e.target.classList.contains('Comprar')) {
-			const product = e.target.parentElement.parentElement;
-			this.readProductData(productCard);
-		}
-	}
+	cartTotal.innerText = total.toFixed(2);
+}
+// En cart.js
 
-	readProductData(productCard) {
-		const infoProduct = {
-			img: productCard.querySelector('img').src,
-			name: productCard.querySelector('h5').textContent,
-			price: productCard.querySelector('.price span').textContent,
-			id: productCard.querySelector('a').getAttribute('data-id'),
-			amount: 1,
-		};
-		let productLs;
-		productLs = this.obtainProductsLocalStorage();
+// Función para agregar un producto al carrito
+function addToCart(product) {
+	console.log('Añadiendo al carrito:', product);
+	cart.push(product);
+	updateCart();
+}
+console.log(addToCart);
 
-		this.insertCart(infoProduct);
-		const row = document.createElement('tr');
-		row.innerHTML = ` <td> 
-							<img src= "${productCard.img}" width= 100>
-						</td> 
-						<td>${productCard.name}</td>
-						<td>${productCard.price}</td>
-						<td>
-							<a href= "#" class="delete-product fas fa-times-circle" data-id=${productCard.id}></a>
-						</td>
-						`;
-		productList.appendChild(row);
-		this.saveProductsLocalStorage(productCard);
-	}
-	deleteProduct(e) {
-		let productCard, productID;
-		if (e.target.classList.contains('boton-vaciar')) {
-			e.target.parentElement.parentElement.remove();
-			productCard = e.target.parentElement.parentElement;
-			productID = productCard.querySelector('a').getAttribute('data-id');
-		}
-		this.deleteProductLocalStorage(productID);
-	}
-	vaciarCarrito(e) {
-		e.preventDefault();
-		while (productList.firstChild) {
-			productList.removeChild(productList.firstChild);
-		}
-		this.emtyLocalStorage();
-		return false;
-	}
-	saveProductsLocalStorage(productCard) {
-		let product;
-		product = this.obtainProductsLocalStorage();
-		product.push(product);
-		localStorage.setItem('productCard', JSON.stringify(product));
-	}
-	obtainProductsLocalStorage() {
-		let productLs;
-		if (localStorage.getItem('productCard') === null) {
-			productLs = [];
-		} else {
-			productLs = JSON.parse(localStorage.getItem('productCard'));
-		}
-		return productLs;
-	}
-	deleteProductLocalStorage(productID) {
-		let productLs = [];
-		productLs = this.obtainProductsLocalStorage();
-		productLs.forEach(function (productLs, index) {
-			if (productLs.id === productID) {
-				productLs.splice(index, 1);
-			}
-		});
-		localStorage.setItem(productCard, JSON.stringify(productLs));
-	}
-	readLocalStorage() {
-		let productLs;
-		productLs = this.obtainProductsLocalStorage();
-		productLs.forEach(function (productCard) {
-			const row = document.createElement('tr');
-			row.innerHTML = ` <td> 
-								<img src= "${productCard.img}" width= 100>
-							</td> 
-							<td>${productCard.name}</td>
-							<td>${productCard.price}</td>
-							<td>
-								<a href= "#" class="delete-product fas fa-times-circle" data-id=${productCard.id}></a>
-							</td>
-							`;
-			productList.appendChild(row);
-		});
-	}
-	aceptOrder(e) {
-		e.preventDefault();
-		location.href = 'index.html';
+// Función para manejar el evento de clic en el botón "Comprar"
+function handleBuyButtonClick(event) {
+	if (event.target.classList.contains('buy-button')) {
+		const productData = JSON.parse(event.target.dataset.product);
+		addToCart(productData);
+		// Puedes agregar lógica adicional aquí, si es necesario
 	}
 }
+
+// Agrega un evento de clic a los botones "Comprar"
+document.addEventListener('click', handleBuyButtonClick);
