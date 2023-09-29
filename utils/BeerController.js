@@ -1,5 +1,3 @@
-// import { sampleProductList } from '../assets/sampleProductList.js';
-
 export class BeerController {
 	#items;
 
@@ -32,7 +30,6 @@ export class BeerController {
 		localStorage.setItem('products', JSON.stringify(this.#items));
 	}
 
-	// Maybe add validation to addBeer ?
 	addBeer({ name, style, origin, price, size, abv, img }) {
 		const beer = {
 			id: crypto.randomUUID(),
