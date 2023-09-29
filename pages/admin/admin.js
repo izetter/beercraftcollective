@@ -148,7 +148,7 @@ function startEdit(beer) {
 	submitBtn.innerText = 'Guardar Cambios';
 }
 
-function saveEdit() {
+async function saveEdit() {
 	if (validateForm()) {
 		const updatedBeerProps = {
 			name: name.value,
@@ -159,7 +159,7 @@ function saveEdit() {
 			abv: abv.value,
 			img: img.value,
 		};
-		beers.updateBeer(editId, updatedBeerProps);
+		await beers.updateBeer(editId, updatedBeerProps);
 		submitBtn.innerText = 'Agregar Cerveza';
 		formInputs.forEach(($input) => setDefaultInput($input));
 		form.reset();
@@ -169,6 +169,7 @@ function saveEdit() {
 	}
 }
 
+// See NOTE 1 on BeerController.js
 function deleteProduct(id) {
 	beers.removeBeer(id);
 	showProducts();

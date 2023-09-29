@@ -48,17 +48,20 @@ export class BeerController {
 		return this.#items.find((beer) => beer.id === id);
 	}
 
-	updateBeer(id, propsToEdit) {
+	async updateBeer(id, propsToEdit) {
 		try {
 			BeerController.validateUpdateProps(propsToEdit);
+			const updatedBeer = await fetchUtils.updateProduct(id, propsToEdit);
+			console.log(typeof updatedBeer.id, updatedBeer.id);
 			for (let i = 0; i < this.#items.length; i++) {
-				if (this.#items[i].id === id) {
+				if (this.#items[i].id === Number(updatedBeer.id)) {
 					this.#items[i] = { ...this.#items[i], ...propsToEdit };
 					this.updateLocalStorage();
 					return this.#items[i];
 				}
 			}
 		} catch (error) {
+			console.log(error);
 			return error;
 		}
 	}
@@ -81,7 +84,7 @@ export class BeerController {
 }
 
 /* NOTE 1
-	If the API returned the deleted product, it would be better to use that
+	If the API returned the deleted product (it returns nothing), it would be better to use that
 	returned product id to filter (to avoid two sources of truth kind of thing).
-	And removeBeer would have to be async in doing it that way
+	And removeBeer would have to be async if doing it that way
 */
