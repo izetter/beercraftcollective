@@ -5,7 +5,6 @@ export class BeerController {
 
 	constructor(beers) {
 		this.#items = beers;
-		// console.log(this.#items);
 		this.updateLocalStorage();
 	}
 
@@ -31,14 +30,11 @@ export class BeerController {
 	}
 
 	updateLocalStorage() {
-		console.log(1, 'updating LS', this.#items);
 		localStorage.setItem('products', JSON.stringify(this.#items));
-		console.log(2, 'LS:', JSON.parse(localStorage.getItem('products')));
 	}
 
 	async addBeer(beerData) {
 		const newBeer = await fetchUtils.createProduct(beerData);
-		console.log(newBeer);
 		this.#items.push(newBeer);
 		this.updateLocalStorage();
 		return newBeer;
@@ -52,9 +48,8 @@ export class BeerController {
 		try {
 			BeerController.validateUpdateProps(propsToEdit);
 			const updatedBeer = await fetchUtils.updateProduct(id, propsToEdit);
-			console.log(typeof updatedBeer.id, updatedBeer.id);
 			for (let i = 0; i < this.#items.length; i++) {
-				if (this.#items[i].id === Number(updatedBeer.id)) {
+				if (this.#items[i].id === updatedBeer.id) {
 					this.#items[i] = { ...this.#items[i], ...propsToEdit };
 					this.updateLocalStorage();
 					return this.#items[i];

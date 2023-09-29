@@ -99,7 +99,6 @@ function validateForm() {
 // ADMIN FUNCTIONS ============================================================================================
 
 function showProducts() {
-	console.log(3);
 	productSection.innerText = '';
 	beers.items.forEach((beer) => {
 		const cardTemplate = document.createElement('template');
