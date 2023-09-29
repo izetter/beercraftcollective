@@ -1,7 +1,7 @@
 import defaultImg from '../assets/img/generic_beer.png';
 
 export function productCard({ id, name, style, origin, price, size, ABV, img }) {
-	const cartUrl = '/pages/cart/cart.html';
+	
 
 	return `
 		<article class="col" data-id="${id}">

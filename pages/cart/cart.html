@@ -5,22 +5,39 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Carrito de Compras</title>
 		<link rel="stylesheet" href="cart.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+			defer
+		></script>
 	</head>
 	<body>
-		<h1>Carrito de Compras</h1>
-		<ul id="cartItems"></ul>
-		<p>Total: $<span id="cart-total">0.00</span></p>
-		<button id="checkout-button">Realizar Compra</button>
-		<script type="module" src="/pages/cart/cart.js"></script>
-		<script type="module" src="/pages/product/product.js"></script>
-		<!-- ... Tu contenido principal ... -->
+		<header>
+			<nav></nav>
+		</header>
+		<main class="container">
 
-		<!-- Agrega el botón o enlace para abrir el carrito -->
-		<button id="open-cart-button">Abrir Carrito</button>
-
-		<!-- Vincula el JavaScript principal -->
-		<script type="module" src="/index.js"></script>
-
-		<script type="module" src="./cart.js"></script>
+			<h1>Carrito de Compras</h1>
+			<ul id="cartItems"></ul>
+			<p>Total: $<span id="cart-total">0.00</span></p>
+			<button id="checkout-button">Realizar Compra</button>
+			<script type="module" src="/pages/cart/cart.js"></script>
+			
+			<!-- ... Tu contenido principal ... -->
+			
+			<!-- Agrega el botón o enlace para abrir el carrito -->
+			<button id="open-cart-button">Abrir Carrito</button>
+			
+			<!-- Vincula el JavaScript principal -->	
+			<script type="module" src="./cart.js"></script>
+		</main>
+		<footer></footer>
 	</body>
 </html>
