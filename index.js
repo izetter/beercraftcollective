@@ -43,14 +43,17 @@ function handleInput() {
 
 // If there are products in local storage, render them. If there are not,
 // set them in local storage with the sample and then render them from local storage.
-if (products) {
-	getAllProducts();
-	showProducts(products);
-} else {
-	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-	products = JSON.parse(localStorage.getItem('products'));
-	showProducts(products);
-}
+
+(async () => {
+	if (products) {
+		showProducts(products);
+	} else {
+		const fetchedProducts = await getAllProducts();
+		localStorage.setItem('products', JSON.stringify(fetchedProducts));
+		products = JSON.parse(localStorage.getItem('products'));
+		showProducts(products);
+	}
+})();
 
 searchInput.addEventListener('input', handleInput);
 
