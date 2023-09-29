@@ -19,17 +19,14 @@ function loginUser(e) {
 	const users = JSON.parse(localStorage.getItem('users')) || [];
 
 	const userFind = users.find((user) => user.email === $email && user.password === $password);
-	console.table(userFind);
 
 	if (userFind) {
-        if (userFind) {
-            // Redirige al usuario a la página de inicio
-            window.location.href = '/index.html'; 
-        } else {
-            alert('Usuario o contraseña incorrectos.');
-        }
-    $formUser.reset();
-}
+		// Redirige al usuario a la página de inicio
+		window.location.href = '../index.html';
+	} else {
+		alert('Usuario o contraseña incorrectos.');
+	}
+	$formUser.reset();
 }
 
 const footerElement = document.querySelector('footer');
