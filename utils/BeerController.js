@@ -7,7 +7,7 @@ export class BeerController {
 		this.#items = [];
 	}
 
-	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'ABV', 'img']);
+	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'abv', 'img']);
 	static validateUpdateProps(propsToEdit) {
 		if (!propsToEdit || Object.keys(propsToEdit).length === 0) {
 			throw new Error(`An object containing the key-value pairs to update must be provided`);
@@ -33,7 +33,7 @@ export class BeerController {
 	}
 
 	// Maybe add validation to addBeer ?
-	addBeer({ name, style, origin, price, size, ABV, img }) {
+	addBeer({ name, style, origin, price, size, abv, img }) {
 		const beer = {
 			id: crypto.randomUUID(),
 			name,
@@ -41,7 +41,7 @@ export class BeerController {
 			origin,
 			price,
 			size,
-			ABV,
+			abv,
 			img,
 		};
 		this.#items.push(beer);

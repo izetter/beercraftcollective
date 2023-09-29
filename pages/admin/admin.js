@@ -124,7 +124,7 @@ function addProduct() {
 			origin: origin.value,
 			price: price.value,
 			size: size.value,
-			ABV: abv.value,
+			abv: abv.value,
 			img: img.value,
 		};
 		beers.addBeer(newBeer);
@@ -156,7 +156,7 @@ function saveEdit() {
 			origin: origin.value,
 			price: price.value,
 			size: size.value,
-			ABV: abv.value,
+			abv: abv.value,
 			img: img.value,
 		};
 		beers.updateBeer(editId, updatedBeerProps);
