@@ -1,8 +1,6 @@
 import defaultImg from '../assets/img/generic_beer.png';
 
-export function productCardAdmin({ id, name, style, origin, price, size, ABV, img }) {
-	const cartUrl = '/pages/cart/cart.html';
-
+export function productCardAdmin({ id, name, style, origin, price, size, abv, img }) {
 	return `
 		<article class="col" data-id="${id}">
 		<div class="card h-100 shadow-sm">
@@ -16,7 +14,7 @@ export function productCardAdmin({ id, name, style, origin, price, size, ABV, im
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item">Estilo: <span class="text-muted">${style}</span></li>
 				<li class="list-group-item">Origen: <span class="text-muted">${origin}</span></li>
-				<li class="list-group-item">ABV: <span class="text-muted">${ABV}%</span></li>
+				<li class="list-group-item">ABV: <span class="text-muted">${abv}%</span></li>
 			</ul>
 			<div class="card-footer">
 				<div class="d-flex justify-content-between align-items-center">
@@ -29,7 +27,7 @@ export function productCardAdmin({ id, name, style, origin, price, size, ABV, im
 							data-origin="${origin}"
 							data-price="${price}"
 							data-size="${size}"
-							data-ABV="${ABV}"
+							data-abv="${abv}"
 							data-img="${img}"
 							class="btn btn-warning edit-btn"
 						>
@@ -43,7 +41,7 @@ export function productCardAdmin({ id, name, style, origin, price, size, ABV, im
 							data-origin="${origin}"
 							data-price="${price}"
 							data-size="${size}"
-							data-ABV="${ABV}"
+							data-abv="${abv}"
 							data-img="${img}"
 							class="btn btn-warning delete-btn"
 						>

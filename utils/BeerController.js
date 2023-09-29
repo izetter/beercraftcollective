@@ -1,13 +1,14 @@
-// import { sampleProductList } from '../assets/sampleProductList.js';
+import { fetchUtils } from './fetchUtils';
 
 export class BeerController {
 	#items;
 
-	constructor() {
-		this.#items = [];
+	constructor(beers) {
+		this.#items = beers;
+		this.updateLocalStorage();
 	}
 
-	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'ABV', 'img']);
+	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'abv', 'img']);
 	static validateUpdateProps(propsToEdit) {
 		if (!propsToEdit || Object.keys(propsToEdit).length === 0) {
 			throw new Error(`An object containing the key-value pairs to update must be provided`);
@@ -32,46 +33,40 @@ export class BeerController {
 		localStorage.setItem('products', JSON.stringify(this.#items));
 	}
 
-	// Maybe add validation to addBeer ?
-	addBeer({ name, style, origin, price, size, ABV, img }) {
-		const beer = {
-			id: crypto.randomUUID(),
-			name,
-			style,
-			origin,
-			price,
-			size,
-			ABV,
-			img,
-		};
-		this.#items.push(beer);
+	async addBeer(beerData) {
+		const newBeer = await fetchUtils.createProduct(beerData);
+		this.#items.push(newBeer);
 		this.updateLocalStorage();
-		return beer;
+		return newBeer;
 	}
 
 	getBeer(id) {
 		return this.#items.find((beer) => beer.id === id);
 	}
 
-	updateBeer(id, propsToEdit) {
+	async updateBeer(id, propsToEdit) {
 		try {
 			BeerController.validateUpdateProps(propsToEdit);
+			const updatedBeer = await fetchUtils.updateProduct(id, propsToEdit);
 			for (let i = 0; i < this.#items.length; i++) {
-				if (this.#items[i].id === id) {
+				if (this.#items[i].id === updatedBeer.id) {
 					this.#items[i] = { ...this.#items[i], ...propsToEdit };
 					this.updateLocalStorage();
 					return this.#items[i];
 				}
 			}
 		} catch (error) {
+			console.log(error);
 			return error;
 		}
 	}
 
+	// See NOTE 1
 	removeBeer(id) {
+		fetchUtils.deleteProduct(id);
 		let removedBeer = null;
 		this.#items = this.#items.filter((beer) => {
-			if (beer.id !== id) {
+			if (beer.id !== Number(id)) {
 				return true;
 			} else {
 				removedBeer = beer;
@@ -82,3 +77,9 @@ export class BeerController {
 		return removedBeer;
 	}
 }
+
+/* NOTE 1
+	If the API returned the deleted product (it returns nothing), it would be better to use that
+	returned product id to filter (to avoid two sources of truth kind of thing).
+	And removeBeer would have to be async if doing it that way
+*/

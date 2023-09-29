@@ -1,7 +1,7 @@
 import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
-import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
+import { fetchUtils } from './utils/fetchUtils.js';
 
 const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
@@ -41,14 +41,18 @@ function handleInput() {
 }
 
 // If there are products in local storage, render them. If there are not,
-// set them in local storage with the sample and then render them from local storage.
-if (products) {
-	showProducts(products);
-} else {
-	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-	products = JSON.parse(localStorage.getItem('products'));
-	showProducts(products);
-}
+// fetch them from DB and set them in local storage and then render them from local storage.
+
+(async () => {
+	if (products) {
+		showProducts(products);
+	} else {
+		const fetchedProducts = await fetchUtils.getAllProducts();
+		localStorage.setItem('products', JSON.stringify(fetchedProducts));
+		products = JSON.parse(localStorage.getItem('products'));
+		showProducts(products);
+	}
+})();
 
 searchInput.addEventListener('input', handleInput);
 
