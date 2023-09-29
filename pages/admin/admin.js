@@ -2,7 +2,7 @@ import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { BeerController } from '../../utils/BeerController.js';
 import { productCardAdmin } from '../../components/productCardAdmin.js';
-// import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
+import { fetchUtils } from '../../utils/fetchUtils.js';
 
 // FOOTER & NAVBAR ============================================================================================
 
@@ -29,8 +29,7 @@ const formInputs = [name, style, origin, price, size, abv];
 const productSection = document.getElementById('product-section');
 let isEditing = false;
 let editId = null;
-
-const beers = new BeerController();
+let beers = null;
 
 // VALIDATION FUNCTIONS =======================================================================================
 
@@ -116,7 +115,7 @@ function getBeersFromLocalStorage() {
 	}
 }
 
-function addProduct() {
+async function addProduct() {
 	if (validateForm()) {
 		const newBeer = {
 			name: name.value,
@@ -124,10 +123,10 @@ function addProduct() {
 			origin: origin.value,
 			price: price.value,
 			size: size.value,
-			ABV: abv.value,
+			abv: abv.value,
 			img: img.value,
 		};
-		beers.addBeer(newBeer);
+		await beers.addBeer(newBeer);
 		formInputs.forEach(($input) => setDefaultInput($input));
 		form.reset();
 		showProducts();
@@ -148,7 +147,7 @@ function startEdit(beer) {
 	submitBtn.innerText = 'Guardar Cambios';
 }
 
-function saveEdit() {
+async function saveEdit() {
 	if (validateForm()) {
 		const updatedBeerProps = {
 			name: name.value,
@@ -156,10 +155,10 @@ function saveEdit() {
 			origin: origin.value,
 			price: price.value,
 			size: size.value,
-			ABV: abv.value,
+			abv: abv.value,
 			img: img.value,
 		};
-		beers.updateBeer(editId, updatedBeerProps);
+		await beers.updateBeer(editId, updatedBeerProps);
 		submitBtn.innerText = 'Agregar Cerveza';
 		formInputs.forEach(($input) => setDefaultInput($input));
 		form.reset();
@@ -169,15 +168,13 @@ function saveEdit() {
 	}
 }
 
+// See NOTE 1 on BeerController.js
 function deleteProduct(id) {
 	beers.removeBeer(id);
 	showProducts();
 }
 
 // EXECUTION =================================================================================================
-
-// TO ADD PRODUCTS TO LOCAL STORAGE FOR TESTING
-// localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
 
 formInputs.forEach(($input) => {
 	$input.addEventListener('blur', () => {
@@ -195,4 +192,8 @@ productSection.addEventListener('click', (evt) => {
 	if (evt.target.classList.contains('edit-btn')) startEdit(evt.target.dataset);
 });
 
-getBeersFromLocalStorage();
+(async () => {
+	const beersFromDB = await fetchUtils.getAllProducts();
+	beers = new BeerController(beersFromDB);
+	getBeersFromLocalStorage();
+})();

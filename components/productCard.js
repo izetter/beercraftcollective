@@ -1,6 +1,6 @@
 import defaultImg from '../assets/img/generic_beer.png';
 
-export function productCard({ id, name, style, origin, price, size, ABV, img }) {
+export function productCard({ id, name, style, origin, price, size, abv, img }) {
 	const cartUrl = '/pages/cart/cart.html';
 
 	return `
@@ -18,7 +18,7 @@ export function productCard({ id, name, style, origin, price, size, ABV, img }) 
 					<li class="list-group-item">Origen: <span class="text-muted">${origin}</span></li>
 					<li class="list-group-item">
 						<span class="text-muted">
-							<span data-tooltip="Porcentaje de Alcohol: ${ABV}%">ABV: ${ABV}%</span>
+							<span data-tooltip="Porcentaje de Alcohol: ${abv}%">ABV: ${abv}%</span>
 						</span>
 					</li>
 				<div class="card-footer">

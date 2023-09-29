@@ -6,7 +6,7 @@ export const sampleProductList = [
 		origin: 'Colima, Colima',
 		img: 'https://i.ibb.co/hmkrw39/Colima-Paramo.png',
 		price: 75,
-		ABV: 11,
+		abv: 11,
 		size: 350,
 	},
 	{
@@ -16,7 +16,7 @@ export const sampleProductList = [
 		origin: 'Monterrey, Nuevo León',
 		img: 'https://i.ibb.co/wcMJ0S9/principia-extrasolar.png',
 		price: 75,
-		ABV: 6.5,
+		abv: 6.5,
 		size: 350,
 	},
 	{
@@ -26,7 +26,7 @@ export const sampleProductList = [
 		origin: 'CDMX',
 		img: 'https://i.ibb.co/Lknv4G8/Charro-botella.png',
 		price: 90,
-		ABV: 6,
+		abv: 6,
 		size: 350,
 	},
 	{
@@ -36,7 +36,7 @@ export const sampleProductList = [
 		origin: 'Los Cabos - Baja California',
 		img: 'https://i.ibb.co/h9VKznj/Baja-IPA.png',
 		price: 130,
-		ABV: 13,
+		abv: 13,
 		size: 350,
 	},
 	{
@@ -46,7 +46,7 @@ export const sampleProductList = [
 		origin: 'Colima, Colima',
 		img: 'https://i.ibb.co/hBjjMPn/Colima-Piedra-Lisa.png',
 		price: 60,
-		ABV: 4.5,
+		abv: 4.5,
 		size: 350,
 	},
 	{
@@ -56,7 +56,7 @@ export const sampleProductList = [
 		origin: 'Guadalajara, Jalisco',
 		img: 'https://i.ibb.co/4FLpX33/cielitolindo.png',
 		price: 80,
-		ABV: 10,
+		abv: 10,
 		size: 350,
 	},
 	{
@@ -66,7 +66,7 @@ export const sampleProductList = [
 		origin: 'Tijuana - Baja California',
 		img: 'https://i.ibb.co/1Tc7qQz/Juan-Cordero-Cerveceria-insurgentes.png',
 		price: 60,
-		ABV: 6.5,
+		abv: 6.5,
 		size: 350,
 	},
 	{
@@ -76,7 +76,7 @@ export const sampleProductList = [
 		origin: 'Tijuana - Baja California',
 		img: 'https://i.ibb.co/ysfdL5f/Lupulosa-Cerveceria-insurgentes.png',
 		price: 150,
-		ABV: 13,
+		abv: 13,
 		size: 473,
 	},
 	{
@@ -86,7 +86,7 @@ export const sampleProductList = [
 		origin: 'Colima, Colima',
 		img: 'https://i.ibb.co/r5rM1SQ/Colima-Cabanuela-Cerveza-Beerhouse.png',
 		price: 65,
-		ABV: 13,
+		abv: 13,
 		size: 355,
 	},
 	{
@@ -96,7 +96,7 @@ export const sampleProductList = [
 		origin: 'Ensenada, Baja California',
 		img: 'https://i.ibb.co/0GCdK6G/Wendlandt-perro.png',
 		price: 70,
-		ABV: 7.5,
+		abv: 7.5,
 		size: 355,
 	},
 ];
