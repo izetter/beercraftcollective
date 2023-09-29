@@ -35,7 +35,7 @@ export function navbar() {
 						alt="cart"
 						width="30"
 						height="30"
-						class="align-text-center"
+						class="align-text-center quantity"
 					/>Carrito</a
 				>
 

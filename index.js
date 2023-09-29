@@ -10,6 +10,9 @@ const notFound = document.querySelector('#beer-not-found');
 const productSection = document.getElementById('product-section');
 let products = JSON.parse(localStorage.getItem('products'));
 
+const quantityProducts = document.querySelector('.quantity-products');
+quantityProducts.innerText = '';
+
 function showProducts(productList) {
 	productSection.innerText = null;
 	productList.forEach((product) => {
@@ -18,8 +21,14 @@ function showProducts(productList) {
 		const cardContent = cardTemplate.content.firstElementChild; // Obtiene el primer elemento hijo (la tarjeta de producto)
 		productSection.appendChild(cardContent); // Agrega la tarjeta de producto al productSection
 		const but = cardContent.querySelector('.buy-button');
-		console.log(but);
-		// Agrega un manejador de clic al botón de compra dentro de la tarjeta
+
+		// Agrega un manejador de clic al botón de compra dentro de la
+
+		but.addEventListener('click', () => {
+			// Realiza la acción que deseas al hacer clic en el botón de compra
+			// Por ejemplo, puedes llamar a la función addProduct(product) aquí
+			addProduct(product);
+		});
 	});
 }
 
@@ -27,12 +36,12 @@ function showProducts(productList) {
 const cart = new CartManager();
 
 function addProduct(product) {
-	// Accede a la tarjeta de producto correspondiente al botón que se hizo clic
-
 	cart.addItem(product);
+	console.log('Contenido actual del carrito:', cart.showItems());
+	quantityProducts.innerText = cart.quantityProducts();
+	cart.amount();
+	console.log(cart.amount());
 }
-
-console.log(cart.showItems());
 
 function normalizeStr(str) {
 	return str

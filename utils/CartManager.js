@@ -3,13 +3,14 @@ export class CartManager {
 	constructor(currentId = 1) {
 		this.items = [];
 		this.currentId = currentId;
+		this.subtotalCompra;
 	}
 
 	addItem(product) {
 		const { id, name, style, price, quantity = 1, img } = product;
 		const idProductoRepetido = this.items.find((e) => e.id === id);
 		if (idProductoRepetido) {
-			product.quantity++;
+			idProductoRepetido.quantity++;
 		} else {
 			const product = {
 				id: id,
@@ -21,24 +22,10 @@ export class CartManager {
 			};
 
 			this.items.push(product);
-			alert('Se Agrego el producto');
 		}
 
-		// Toastify({
-		// 	text: "Se ha agreado un producto al carrito",
-		// 	duration: 3000,
-		// 	newWindow: true,
-		// 	close: true,
-		// 	gravity: "bottom", // `top` or `bottom`
-		// 	position: "right", // `left`, `center` or `right`
-		// 	stopOnFocus: true, // Prevents dismissing of toast on hover
-
-		// 	style: {
-		// 	  background: "linear-gradient(to right, #00b09b, #96c93d)",
-		// 	},
-		//   }).showToast();
-
 		localStorage.setItem('carritoCompras', JSON.stringify(this.items));
+		alert('Se Agrego el producto');
 	}
 
 	removeItem(productId) {
@@ -47,6 +34,20 @@ export class CartManager {
 
 	getTotal() {
 		return this.items.reduce((total, product) => total + product.price, 0);
+	}
+
+	quantityProducts() {
+		let totalItems = 0;
+		totalItems = this.items.reduce((acumulador, elemento) => acumulador + elemento.quantity, 0);
+		return totalItems;
+	}
+
+	amount() {
+		this.subtotalCompra = this.items.reduce(
+			(acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad,
+			0
+		);
+		return this.subtotalCompra;
 	}
 
 	showItems() {
