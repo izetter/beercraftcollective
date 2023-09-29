@@ -6,7 +6,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Colima, Colima',
 		price: 75,
 		size: 350,
-		ABV: 11,
+		abv: 11,
 		img: 'https://i.ibb.co/hmkrw39/Colima-Paramo.png',
 	},
 	{
@@ -16,7 +16,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Monterrey, Nuevo León',
 		price: 75,
 		size: 350,
-		ABV: 6.5,
+		abv: 6.5,
 		img: 'https://i.ibb.co/wcMJ0S9/principia-extrasolar.png',
 	},
 	{
@@ -26,7 +26,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'CDMX',
 		price: 90,
 		size: 350,
-		ABV: 6,
+		abv: 6,
 		img: 'https://i.ibb.co/Lknv4G8/Charro-botella.png',
 	},
 	{
@@ -36,7 +36,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Los Cabos - Baja California',
 		price: 130,
 		size: 350,
-		ABV: 13,
+		abv: 13,
 		img: 'https://i.ibb.co/h9VKznj/Baja-IPA.png',
 	},
 	{
@@ -46,7 +46,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Colima, Colima',
 		price: 60,
 		size: 350,
-		ABV: 4.5,
+		abv: 4.5,
 		img: 'https://i.ibb.co/hBjjMPn/Colima-Piedra-Lisa.png',
 	},
 	{
@@ -56,7 +56,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Guadalajara, Jalisco',
 		price: 80,
 		size: 350,
-		ABV: 10,
+		abv: 10,
 		img: 'https://i.ibb.co/4FLpX33/cielitolindo.png',
 	},
 	{
@@ -66,7 +66,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Tijuana - Baja California',
 		price: 60,
 		size: 350,
-		ABV: 6.5,
+		abv: 6.5,
 		img: 'https://i.ibb.co/1Tc7qQz/Juan-Cordero-Cerveceria-insurgentes.png',
 	},
 	{
@@ -76,7 +76,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Tijuana - Baja California',
 		price: 150,
 		size: 473,
-		ABV: 13,
+		abv: 13,
 		img: 'https://i.ibb.co/ysfdL5f/Lupulosa-Cerveceria-insurgentes.png',
 	},
 	{
@@ -86,7 +86,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Colima, Colima',
 		price: 65,
 		size: 355,
-		ABV: 13,
+		abv: 13,
 		img: 'https://i.ibb.co/r5rM1SQ/Colima-Cabanuela-Cerveza-Beerhouse.png',
 	},
 	{
@@ -96,7 +96,7 @@ export const sampleProductListTestAfterSubmitMOCK = [
 		origin: 'Ensenada, Baja California',
 		price: 70,
 		size: 355,
-		ABV: 7.5,
+		abv: 7.5,
 		img: 'https://i.ibb.co/0GCdK6G/Wendlandt-perro.png',
 	},
 ];
