@@ -1,9 +1,3 @@
-<link
-	rel="font-family: 'Borel', cursive;
-	font-family: 'Inter', sans-serif;
-	font-family: 'Quicksand', sans-serif;
-	font-family: 'Raleway', sans-serif;"
-/>
 
 ![image](https://github.com/izetter/beercraftcollective/assets/140113130/0d358a0b-631b-4102-bf2c-4f1073dec78e)
 
