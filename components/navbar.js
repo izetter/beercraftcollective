@@ -28,18 +28,18 @@ export function navbar() {
 				<a href="/pages/about/about.html" class="nav-item nav-link mx-5">Nosotros</a>
 				<a href="/pages/contact/contact.html" class="nav-item nav-link mx-5">Contacto</a>
 			</div>
-			<div class="navbar-nav mb-1 mx-1">
-				<a href="/pages/cart/cart.html" class="nav-item nav-link mx-3">
+			<div class="navbar-nav mb-1 mx-5">
+				<a href="/pages/cart/cart.html" class="nav-item nav-link ">
 					<img
 						src="${cart}"
 						alt="cart"
 						width="30"
 						height="30"
-						class="align-text-center"
+						class="align-text-center quantity"
 					/>Carrito</a
 				>
 
-				<a href="/pages/user-login/userLogin.html" class="nav-item nav-link mx-3">
+				<a href="/pages/user-login/userLogin.html" class="nav-item nav-link">
 					<img src="${user}" alt="" width="30" height="30" class="align-text-center" />
 					Login</a
 				>

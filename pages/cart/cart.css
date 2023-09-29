@@ -38,7 +38,7 @@ footer {
 	background-color: #fff;
 	border-bottom-left-radius: 1rem;
 	border-top-left-radius: 1rem;
-	padding: 4vh 5vh;
+	padding: 7vh 5vh;
 }
 
 @media (max-width: 767px) {
@@ -184,4 +184,39 @@ a:hover {
 	height: 250px;
 	object-fit: cover;
 	width: 250px;
+}
+
+.template-card {
+	width: 250px;
+}
+
+button.btn-dark {
+	width: 100%;
+	margin-right: 10px;
+}
+
+h5,
+h4 {
+	font-size: 1.2rem;
+
+	font-weight: bold;
+
+	color: #333;
+}
+
+#cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+	gap: 1rem;
+}
+
+#cards .card {
+	max-width: 350px;
+}
+
+#cards .card img {
+	max-width: 100%;
+
+	height: auto;
 }
