@@ -1,7 +1,6 @@
 import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
-import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
 import { fetchUtils } from './utils/fetchUtils.js';
 
 const searchInput = document.querySelector('#search-items');
@@ -42,7 +41,7 @@ function handleInput() {
 }
 
 // If there are products in local storage, render them. If there are not,
-// set them in local storage with the sample and then render them from local storage.
+// fetch them from DB and set them in local storage and then render them from local storage.
 
 (async () => {
 	if (products) {
