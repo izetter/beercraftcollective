@@ -5,7 +5,7 @@ export class BeerController {
 
 	constructor(beers) {
 		this.#items = beers;
-		console.log(this.#items);
+		// console.log(this.#items);
 		this.updateLocalStorage();
 	}
 
@@ -31,23 +31,27 @@ export class BeerController {
 	}
 
 	updateLocalStorage() {
+		console.log(1, 'updating LS', this.#items);
 		localStorage.setItem('products', JSON.stringify(this.#items));
+		console.log(2, 'LS:', JSON.parse(localStorage.getItem('products')));
 	}
 
-	addBeer({ name, style, origin, price, size, abv, img }) {
-		const beer = {
-			id: crypto.randomUUID(),
-			name,
-			style,
-			origin,
-			price,
-			size,
-			abv,
-			img,
-		};
-		this.#items.push(beer);
+	async addBeer(beerData) {
+		const newBeer = await fetchUtils.createProduct(beerData);
+		// const beer = {
+		// 	id: crypto.randomUUID(),
+		// 	name,
+		// 	style,
+		// 	origin,
+		// 	price,
+		// 	size,
+		// 	abv,
+		// 	img,
+		// };
+		this.#items.push(newBeer);
+		// console.log('addingBeer', this.#items);
 		this.updateLocalStorage();
-		return beer;
+		// return beer;
 	}
 
 	getBeer(id) {
