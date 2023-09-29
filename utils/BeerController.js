@@ -3,8 +3,10 @@ import { fetchUtils } from './fetchUtils';
 export class BeerController {
 	#items;
 
-	constructor() {
-		this.#items = [];
+	constructor(beers) {
+		this.#items = beers;
+		console.log(this.#items);
+		this.updateLocalStorage();
 	}
 
 	static #validProps = new Set(['id', 'name', 'style', 'origin', 'price', 'size', 'abv', 'img']);
@@ -71,7 +73,7 @@ export class BeerController {
 		fetchUtils.deleteProduct(id);
 		let removedBeer = null;
 		this.#items = this.#items.filter((beer) => {
-			if (beer.id !== id) {
+			if (beer.id !== Number(id)) {
 				return true;
 			} else {
 				removedBeer = beer;

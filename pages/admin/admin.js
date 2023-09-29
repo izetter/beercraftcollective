@@ -3,6 +3,7 @@ import { footer } from '../../components/footer.js';
 import { BeerController } from '../../utils/BeerController.js';
 import { productCardAdmin } from '../../components/productCardAdmin.js';
 // import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
+import { fetchUtils } from '../../utils/fetchUtils.js';
 
 // FOOTER & NAVBAR ============================================================================================
 
@@ -30,7 +31,8 @@ const productSection = document.getElementById('product-section');
 let isEditing = false;
 let editId = null;
 
-const beers = new BeerController();
+let beersFromDB = [];
+let beers = null;
 
 // VALIDATION FUNCTIONS =======================================================================================
 
@@ -99,7 +101,7 @@ function validateForm() {
 
 // ADMIN FUNCTIONS ============================================================================================
 
-function showProducts() {
+async function showProducts() {
 	productSection.innerText = '';
 	beers.items.forEach((beer) => {
 		const cardTemplate = document.createElement('template');
@@ -108,11 +110,11 @@ function showProducts() {
 	});
 }
 
-function getBeersFromLocalStorage() {
+async function getBeersFromLocalStorage() {
 	const storedProducts = JSON.parse(localStorage.getItem('products'));
 	if (storedProducts) {
 		beers.items = storedProducts;
-		showProducts();
+		await showProducts();
 	}
 }
 
@@ -170,7 +172,6 @@ function saveEdit() {
 }
 
 function deleteProduct(id) {
-	console.log(id);
 	beers.removeBeer(id);
 	showProducts();
 }
@@ -196,4 +197,8 @@ productSection.addEventListener('click', (evt) => {
 	if (evt.target.classList.contains('edit-btn')) startEdit(evt.target.dataset);
 });
 
-getBeersFromLocalStorage();
+(async () => {
+	beersFromDB = await fetchUtils.getAllProducts();
+	beers = new BeerController(beersFromDB);
+	await getBeersFromLocalStorage();
+})();
