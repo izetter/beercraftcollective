@@ -2,6 +2,7 @@ import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
 import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
+import { getAllProducts } from './utils/fetchUtils.js';
 
 const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
@@ -43,6 +44,7 @@ function handleInput() {
 // If there are products in local storage, render them. If there are not,
 // set them in local storage with the sample and then render them from local storage.
 if (products) {
+	getAllProducts();
 	showProducts(products);
 } else {
 	localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
