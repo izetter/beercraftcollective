@@ -1,6 +1,5 @@
-<link
-	rel="font-family: 'Borel', cursive;
-	font-family: 'Inter', sans-serif;
-	font-family: 'Quicksand', sans-serif;
-	font-family: 'Raleway', sans-serif;"
-/>
+THIS IS THE BRANCH WITH THE LAST CHANGES BEFORE MOVING TO THE REAL DB INSTEAD OF LOCAL STORAGE.
+
+DO NOT MODIFY ANY FURTHER.
+
+IT'S HERE JUST FOR REFERENCE.
