@@ -45,9 +45,9 @@ const fetchData = async () => {
 // Pintar productos
 const pintarCards = data => {
     data.forEach(item => {
-        templateCard.querySelector('h5').textContent = item.title
-        templateCard.querySelector('p').textContent = item.precio
-        templateCard.querySelector('button').dataset.id = item.id
+        templateCard.querySelector('h5').textContent = item.img
+        templateCard.querySelector('p').textContent = "$" + item.price
+        templateCard.querySelector('button').dataset.name = item.name
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
     })
@@ -68,16 +68,16 @@ const setCarrito = item => {
     // console.log(item)
     const producto = {
         title: item.querySelector('h5').textContent,
-        precio: item.querySelector('p').textContent,
-        id: item.querySelector('button').dataset.id,
+        price: item.querySelector('p').textContent,
+        name: item.querySelector('button').dataset.name,
         cantidad: 1
     }
     // console.log(producto)
-    if (carrito.hasOwnProperty(producto.id)) {
-        producto.cantidad = carrito[producto.id].cantidad + 1
+    if (carrito.hasOwnProperty(producto.name)) {
+        producto.cantidad = carrito[producto.name].cantidad + 1
     }
 
-    carrito[producto.id] = { ...producto }
+    carrito[producto.name] = { ...producto }
     
     pintarCarrito()
 }
@@ -86,14 +86,14 @@ const pintarCarrito = () => {
     items.innerHTML = ''
 
     Object.values(carrito).forEach(producto => {
-        templateCarrito.querySelector('th').textContent = producto.id
+        templateCarrito.querySelector('th').textContent = producto.name
         templateCarrito.querySelectorAll('td')[0].textContent = producto.title
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarrito.querySelector('span').textContent = producto.precio * producto.cantidad
+        templateCarrito.querySelector('span').textContent = producto.price * producto.cantidad
         
         //botones
-        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
-        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+        templateCarrito.querySelector('.btn-info').dataset.name = producto.name
+        templateCarrito.querySelector('.btn-danger').dataset.name = producto.name
 
         const clone = templateCarrito.cloneNode(true)
         fragment.appendChild(clone)
@@ -108,18 +108,18 @@ const pintarFooter = () => {
     
     if (Object.keys(carrito).length === 0) {
         footer2.innerHTML = `
-        <th scope="row" colspan="5">Carrito vacío con innerHTML</th>
+        <th scope="row" colspan="5">Carrito vacío</th>
         `
         return
     }
     
     // sumar cantidad y sumar totales
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
-    const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-    // console.log(nPrecio)
+    const nprice = Object.values(carrito).reduce((acc, {cantidad, price}) => acc + cantidad * price ,0)
+    // console.log(nprice)
 
     templateFooter2.querySelectorAll('td')[0].textContent = nCantidad
-    templateFooter2.querySelector('span').textContent = nPrecio
+    templateFooter2.querySelector('span').textContent = nprice
 
     const clone = templateFooter2.cloneNode(true)
     fragment.appendChild(clone)
@@ -137,19 +137,19 @@ const pintarFooter = () => {
 const btnAumentarDisminuir = e => {
     // console.log(e.target.classList.contains('btn-info'))
     if (e.target.classList.contains('btn-info')) {
-        const producto = carrito[e.target.dataset.id]
+        const producto = carrito[e.target.dataset.name]
         producto.cantidad++
-        carrito[e.target.dataset.id] = { ...producto }
+        carrito[e.target.dataset.name] = { ...producto }
         pintarCarrito()
     }
 
     if (e.target.classList.contains('btn-danger')) {
-        const producto = carrito[e.target.dataset.id]
+        const producto = carrito[e.target.dataset.name]
         producto.cantidad--
         if (producto.cantidad === 0) {
-            delete carrito[e.target.dataset.id]
+            delete carrito[e.target.dataset.name]
         } else {
-            carrito[e.target.dataset.id] = {...producto}
+            carrito[e.target.dataset.name] = {...producto}
         }
         pintarCarrito()
     }
