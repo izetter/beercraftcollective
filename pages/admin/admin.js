@@ -98,7 +98,8 @@ function validateForm() {
 
 // ADMIN FUNCTIONS ============================================================================================
 
-async function showProducts() {
+function showProducts() {
+	console.log(3);
 	productSection.innerText = '';
 	beers.items.forEach((beer) => {
 		const cardTemplate = document.createElement('template');
@@ -107,15 +108,15 @@ async function showProducts() {
 	});
 }
 
-async function getBeersFromLocalStorage() {
+function getBeersFromLocalStorage() {
 	const storedProducts = JSON.parse(localStorage.getItem('products'));
 	if (storedProducts) {
 		beers.items = storedProducts;
-		await showProducts();
+		showProducts();
 	}
 }
 
-function addProduct() {
+async function addProduct() {
 	if (validateForm()) {
 		const newBeer = {
 			name: name.value,
@@ -126,7 +127,7 @@ function addProduct() {
 			abv: abv.value,
 			img: img.value,
 		};
-		beers.addBeer(newBeer);
+		await beers.addBeer(newBeer);
 		formInputs.forEach(($input) => setDefaultInput($input));
 		form.reset();
 		showProducts();
@@ -194,5 +195,5 @@ productSection.addEventListener('click', (evt) => {
 (async () => {
 	const beersFromDB = await fetchUtils.getAllProducts();
 	beers = new BeerController(beersFromDB);
-	await getBeersFromLocalStorage();
+	getBeersFromLocalStorage();
 })();

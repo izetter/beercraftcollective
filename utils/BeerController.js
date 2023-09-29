@@ -38,20 +38,10 @@ export class BeerController {
 
 	async addBeer(beerData) {
 		const newBeer = await fetchUtils.createProduct(beerData);
-		// const beer = {
-		// 	id: crypto.randomUUID(),
-		// 	name,
-		// 	style,
-		// 	origin,
-		// 	price,
-		// 	size,
-		// 	abv,
-		// 	img,
-		// };
+		console.log(newBeer);
 		this.#items.push(newBeer);
-		// console.log('addingBeer', this.#items);
 		this.updateLocalStorage();
-		// return beer;
+		return newBeer;
 	}
 
 	getBeer(id) {
@@ -73,6 +63,8 @@ export class BeerController {
 		}
 	}
 
+	// If the API returned the deleted product, it would be better to use that
+	// returned porduct id to filter.
 	removeBeer(id) {
 		fetchUtils.deleteProduct(id);
 		let removedBeer = null;
