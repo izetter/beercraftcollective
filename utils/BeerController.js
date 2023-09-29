@@ -1,3 +1,5 @@
+import { fetchUtils } from './fetchUtils';
+
 export class BeerController {
 	#items;
 
@@ -66,6 +68,7 @@ export class BeerController {
 	}
 
 	removeBeer(id) {
+		fetchUtils.deleteProduct(id);
 		let removedBeer = null;
 		this.#items = this.#items.filter((beer) => {
 			if (beer.id !== id) {

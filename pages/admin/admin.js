@@ -170,6 +170,7 @@ function saveEdit() {
 }
 
 function deleteProduct(id) {
+	console.log(id);
 	beers.removeBeer(id);
 	showProducts();
 }

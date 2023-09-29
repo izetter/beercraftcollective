@@ -2,7 +2,7 @@ import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
 import { sampleProductListTestAfterSubmitMOCK } from './assets/sampleProductListTestAfterSubmitMOCK.js';
-import { getAllProducts } from './utils/fetchUtils.js';
+import { fetchUtils } from './utils/fetchUtils.js';
 
 const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
@@ -48,7 +48,7 @@ function handleInput() {
 	if (products) {
 		showProducts(products);
 	} else {
-		const fetchedProducts = await getAllProducts();
+		const fetchedProducts = await fetchUtils.getAllProducts();
 		localStorage.setItem('products', JSON.stringify(fetchedProducts));
 		products = JSON.parse(localStorage.getItem('products'));
 		showProducts(products);
