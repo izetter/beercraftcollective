@@ -2,6 +2,7 @@ import { navbar } from './components/navbar.js';
 import { footer } from './components/footer.js';
 import { productCard } from './components/productCard.js';
 import { fetchUtils } from './utils/fetchUtils.js';
+import { CartManager } from './utils/CartManager.js';
 
 const searchInput = document.querySelector('#search-items');
 const notFound = document.querySelector('#beer-not-found');
@@ -14,9 +15,24 @@ function showProducts(productList) {
 	productList.forEach((product) => {
 		const cardTemplate = document.createElement('template');
 		cardTemplate.innerHTML = productCard(product);
-		productSection.append(cardTemplate.content);
+		const cardContent = cardTemplate.content.firstElementChild; // Obtiene el primer elemento hijo (la tarjeta de producto)
+		productSection.appendChild(cardContent); // Agrega la tarjeta de producto al productSection
+		const but = cardContent.querySelector('.buy-button');
+		console.log(but);
+		// Agrega un manejador de clic al botón de compra dentro de la tarjeta
 	});
 }
+
+/// INSTANCIAR LA CLASE CART MANAGER PARA MANEJAR EL CARRITO DE COMPRAS
+const cart = new CartManager();
+
+function addProduct(product) {
+	// Accede a la tarjeta de producto correspondiente al botón que se hizo clic
+
+	cart.addItem(product);
+}
+
+console.log(cart.showItems());
 
 function normalizeStr(str) {
 	return str
