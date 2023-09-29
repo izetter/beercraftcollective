@@ -2,7 +2,6 @@ import { navbar } from '../../components/navbar.js';
 import { footer } from '../../components/footer.js';
 import { BeerController } from '../../utils/BeerController.js';
 import { productCardAdmin } from '../../components/productCardAdmin.js';
-// import { sampleProductListTestAfterSubmitMOCK } from '../../assets/sampleProductListTestAfterSubmitMOCK.js';
 import { fetchUtils } from '../../utils/fetchUtils.js';
 
 // FOOTER & NAVBAR ============================================================================================
@@ -30,8 +29,6 @@ const formInputs = [name, style, origin, price, size, abv];
 const productSection = document.getElementById('product-section');
 let isEditing = false;
 let editId = null;
-
-let beersFromDB = [];
 let beers = null;
 
 // VALIDATION FUNCTIONS =======================================================================================
@@ -178,9 +175,6 @@ function deleteProduct(id) {
 
 // EXECUTION =================================================================================================
 
-// TO ADD PRODUCTS TO LOCAL STORAGE FOR TESTING
-// localStorage.setItem('products', JSON.stringify(sampleProductListTestAfterSubmitMOCK));
-
 formInputs.forEach(($input) => {
 	$input.addEventListener('blur', () => {
 		validateInput($input);
@@ -198,7 +192,7 @@ productSection.addEventListener('click', (evt) => {
 });
 
 (async () => {
-	beersFromDB = await fetchUtils.getAllProducts();
+	const beersFromDB = await fetchUtils.getAllProducts();
 	beers = new BeerController(beersFromDB);
 	await getBeersFromLocalStorage();
 })();
