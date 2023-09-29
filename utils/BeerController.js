@@ -63,8 +63,7 @@ export class BeerController {
 		}
 	}
 
-	// If the API returned the deleted product, it would be better to use that
-	// returned porduct id to filter.
+	// See NOTE 1
 	removeBeer(id) {
 		fetchUtils.deleteProduct(id);
 		let removedBeer = null;
@@ -80,3 +79,9 @@ export class BeerController {
 		return removedBeer;
 	}
 }
+
+/* NOTE 1
+	If the API returned the deleted product, it would be better to use that
+	returned product id to filter (to avoid two sources of truth kind of thing).
+	And removeBeer would have to be async in doing it that way
+*/
