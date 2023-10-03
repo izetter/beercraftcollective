@@ -1,34 +1,32 @@
-
 ![image](https://github.com/izetter/beercraftcollective/assets/140113130/0d358a0b-631b-4102-bf2c-4f1073dec78e)
 
-
 # Beer Craft Collective
-<p><b>Repositorio del FrontEnd del proyecto Beer Craft Collective.</b></p>
+
+<p><b>Repositorio de la parte cliente de Beer Craft Collective.</b></p>
+<p>Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND)</p>
 
 # Miembros del Equipo:
+
 <ul>
-<li>Esmeralda Torres</li>
-<li>Citlali Gonzalez</li>
-<li>Eduardo Garcia</li>
 <li>Isay Zetter</li>
+<li>Esmeralda Torres</li>
+<li>Eduardo Garcia</li>
+<li>Citlali Gonzalez</li>
 <li>Diego Herrera</li>
 
 </ul>
 
 # Tecnologías utilizadas:
 
-Frontend:
 <ul>
-<li>HTML</li>
-<li>CSS</li>
 <li>JavaScript</li>
+<li>Vite.js</li>
 <li>Bootstrap</li>
-</ul>
-
-Otras:
-<ul>
-<li>Visual Studio Code</li>
+<li>CSS</li>
+<li>HTML</li>
 <li>Git</li>
+<li>ESLint</li>
+<li>Trello</li>
 </ul>
 
 # Objetivo
@@ -36,6 +34,7 @@ Otras:
 Este proyecto tiene como objetivo crear un sitio de comercio electrónico dedicado a la venta de cerveza artesanal. Nuestra visión desde el principio ha sido proporcionar a los usuarios una experiencia de compra sencilla y agradable, con un diseño minimalista que resalta la calidad de los productos que ofrecemos.
 
 Características principales
+
 <ul>
 <li>Amigable para el usuario: Hemos diseñado el sitio pensando en la comodidad del usuario. La navegación es intuitiva, y el proceso de compra es simple y sin complicaciones.</li>
 
@@ -53,4 +52,3 @@ Características principales
 # Paleta de Colores
 
 ![image](https://github.com/izetter/beercraftcollective/assets/140113130/2a612acd-81db-45b4-b42a-53dbc3645b91)
-
