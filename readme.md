@@ -16,7 +16,7 @@ se desactiva automáticamente luego de 15 minutos de inactividad, por lo que al 
 o la página [admin CRUD](https://thebeercraftcollective.netlify.app/pages/admin/admin.html) por primera vez, se pide de favor espere un par de minutos y recargue
 la página para poder ver, editar, añadir productos, gracias.</em>
 
-Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND), mismo que esta hosteado en render.com
+Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND)
 
 # Miembros del Equipo:
 
