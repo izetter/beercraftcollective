@@ -4,7 +4,19 @@
 
 <p><b>Repositorio de la parte cliente de Beer Craft Collective.</b></p>
 
-Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND)
+
+Página de inicio<b>*</b>:
+https://thebeercraftcollective.netlify.app
+
+Para utilizar la funcionalidad CRUD visite<b>*</b>:
+https://thebeercraftcollective.netlify.app/pages/admin/admin.html
+
+<b>*</b><em>Considere que dado que el backend esta hosteado en el <ins>tier gratuito</ins> de [render.com](https://render.com/), el servicio
+se desactiva automáticamente luego de 15 minutos de inactividad, por lo que al visitar ya sea [la página de inicio](https://thebeercraftcollective.netlify.app)
+o la página [admin CRUD](https://thebeercraftcollective.netlify.app/pages/admin/admin.html) por primera vez, se pide de favor espere un par de minutos y recargue
+la página para poder ver, editar, añadir productos, gracias.</em>
+
+Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND), mismo que esta hosteado en render.com
 
 # Miembros del Equipo:
 
