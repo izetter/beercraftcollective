@@ -3,7 +3,8 @@
 # Beer Craft Collective
 
 <p><b>Repositorio de la parte cliente de Beer Craft Collective.</b></p>
-<p>Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND)</p>
+
+Ver el repositorio del [back end aquí](https://github.com/izetter/beercraftcollectiveBACKEND)
 
 # Miembros del Equipo:
 
